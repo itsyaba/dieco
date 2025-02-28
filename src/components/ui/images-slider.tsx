@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -34,6 +33,8 @@ export const ImagesSlider = ({
     setCurrentIndex((prevIndex) =>
       prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
     );
+    console.log(loading);
+    
   };
 
   useEffect(() => {

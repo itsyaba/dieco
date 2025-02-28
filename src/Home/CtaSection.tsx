@@ -174,7 +174,6 @@ export default function AnimatedCTA({
                     boxShadow: isHovered
                       ? `0 10px 25px rgba(0, 0, 0, 0.2)`
                       : `0 4px 6px rgba(0, 0, 0, 0.1)`,
-                    focusRingColor: `${accentColor}50`,
                   }}
                   variants={buttonVariants}
                   initial="initial"

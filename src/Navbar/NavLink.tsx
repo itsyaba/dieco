@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 interface NavLinkProps {
   href: string;
   label: string;
-  isScrolled: boolean;
+  isScrolled?: boolean;
   className?: string;
   hasDropdown?: boolean;
   onClick?: () => void;
