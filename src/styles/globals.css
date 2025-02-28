@@ -1,6 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@600;800&family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+font-poppins{
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #040c1c;
+  font-family: "Raleway", sans-serif;
+  background-color: var(--body-bg);
+}
+
 
 @layer base {
   :root {
@@ -87,10 +114,20 @@
     --chart-5: 340 75% 55%;
   }
 }
-
+/* 
 @layer base {
   * {
     @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+} */
+/* 
+---break--- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
