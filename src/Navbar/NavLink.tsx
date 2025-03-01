@@ -21,7 +21,6 @@ const NavLink: FC<NavLinkProps> = ({
   onClick
 }) => {
   const {pathname} = useLocation();
-  console.log(pathname);
   const isActive = pathname === href;
 
   return (

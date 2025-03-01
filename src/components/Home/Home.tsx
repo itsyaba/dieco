@@ -3,8 +3,11 @@ import About from "./About";
 import AnimatedCTA from "./CtaSection";
 
 import Img from "@/assets/imggg.jpg";
-import { DetailsSection } from "./DetailSection";
+// import { DetailsSection } from "./DetailSection";
 import BlogSection from "./BlogSection";
+import JoinCommunity from "./JoinCommunity";
+import FAQSection from "./Faq";
+import { TapeSection } from "./Tape";
 
 export default function Home() {
   return (
@@ -20,15 +23,18 @@ export default function Home() {
           imageAlt="People working in a community agricultural project"
           accentColor="#00d261"
         />
-        <DetailsSection
+        {/* <DetailsSection
           title="Our impact is far-reaching. This is just an iceberg of what we've achieved as a community."
           stats={[
             { icon: "users", value: 262, label: "MEMBERS IN USA" },
             { icon: "building", value: 4, label: "DIDECO BRANCHES" },
             { icon: "home", value: 5, label: "VILLAGES" },
           ]}
-        />
+        /> */}
+        <JoinCommunity />
+        <TapeSection />
         <BlogSection />
+        <FAQSection />
         
     </div>
   );

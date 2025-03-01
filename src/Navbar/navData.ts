@@ -12,8 +12,6 @@ export const navLinks: NavLinkType[] = [
   {
     href: "/about",
     label: "ABOUT US",
-    hasDropdown: true,
-    // dropdown : {}
   },
   {
     href: "/services",

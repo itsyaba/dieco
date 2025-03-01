@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { Home, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "@/assets/dideco-logo.png";
+import { Newsletter } from "./Newsletter";
 
 
 export function Footer() {
@@ -47,12 +48,13 @@ export function Footer() {
   return (
     <motion.footer
       ref={ref}
-      className="bg-darkish text-white py-16"
+      className="bg-darkish text-white pb-10"
       initial="hidden"
       animate={controls}
       variants={containerVariants}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <Newsletter />
+      <div className="container mx-auto px-4 md:px-6 pt-6">
         <div className="grid gap-12 md:grid-cols-3 mb-12">
           {/* Column 1 - Logo and Info */}
           <motion.div className="space-y-6" variants={columnVariants}>
