@@ -1,35 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import type React from "react";
-
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import Img from "@/assets/news-16.jpg"
 export function Newsletter() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const prefersReducedMotion = useReducedMotion();
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: true,
   });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setStatus("loading");
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setStatus("success");
-      setEmail("");
-    } catch (error) {
-      setStatus("error");
-    }
-  };
 
   return (
     <motion.section
