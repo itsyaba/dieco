@@ -1,5 +1,6 @@
 import riceImg from "@/assets/rice.jpg"
 import DescCard from "../DescCard";
+import HistorySection from "./HistorySection";
 
 const About = () => {
   return (
@@ -9,6 +10,7 @@ const About = () => {
         backgroundImage={riceImg}
         breadcrumb="ABOUT US"
       />
+      <HistorySection />
     </div>
   );
 }

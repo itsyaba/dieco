@@ -37,7 +37,7 @@ export function Newsletter() {
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative min-h-[600px] flex items-center justify-center overflow-hidden bg-white"
+      className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-white"
     >
       {/* Background Image */}
       <div
@@ -49,68 +49,7 @@ export function Newsletter() {
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      {/* Content */}
-      <div className="relative container mx-auto px-4 py-16 text-center z-10">
-        <motion.div
-          initial={prefersReducedMotion ? {} : { y: 20, opacity: 0 }}
-          animate={inView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <span className="text-green-400 font-medium tracking-wider text-sm">
-            SUBSCRIBE
-          </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold text-white mb-6">
-            Subscribe for Newsletter
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-            Stay connected with the latest updates, stories, and initiatives
-            from DIDECO North America.
-          </p>
-
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email Address"
-                className="flex-1 px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                required
-              />
-              <motion.button
-                type="submit"
-                className="px-6 py-3 bg-green-400 text-zinc-900 font-medium rounded-lg 
-                         hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2
-                         disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={status === "loading"}
-                whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
-                whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-              >
-                {status === "loading" ? "Subscribing..." : "Subscribe Now"}
-              </motion.button>
-            </div>
-            {status === "success" && (
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 text-green-400"
-              >
-                Thank you for subscribing!
-              </motion.p>
-            )}
-            {status === "error" && (
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 text-red-400"
-              >
-                Something went wrong. Please try again.
-              </motion.p>
-            )}
-          </form>
-        </motion.div>
-      </div>
-
+     
       <div className="absolute bottom-0 left-0 right-0">
         {/* <svg
           viewBox="0 0 1200 120"

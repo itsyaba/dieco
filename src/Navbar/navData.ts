@@ -14,28 +14,28 @@ export const navLinks: NavLinkType[] = [
     label: "ABOUT US",
   },
   {
-    href: "/services",
-    label: "SERVICES",
-    hasDropdown: true,
-  },
-  {
     href: "/community",
-    label: "OUR COMMUNITY",
+    label: "COMMUNITY",
     hasDropdown: true,
   },
   {
-    href: "/heritage",
-    label: "OUR HERITAGE",
+    href: "/projects",
+    label: "PROJECTS",
     hasDropdown: true,
   },
-  {
-    href: "/gallery",
-    label: "GALLERY",
-    hasDropdown: true,
-  },
+  // {
+  //   href: "/heritage",
+  //   label: "OUR HERITAGE",
+  //   hasDropdown: true,
+  // },
+
   {
     href: "/outreach",
     label: "OUTREACH",
+    hasDropdown: true,
+  },  {
+    href: "/donation",
+    label: "SPONSORSHIP",
     hasDropdown: true,
   },
   {

@@ -4,7 +4,7 @@ import AnimatedCTA from "./CtaSection";
 
 import Img from "@/assets/imggg.jpg";
 // import { DetailsSection } from "./DetailSection";
-import BlogSection from "./BlogSection";
+// import BlogSection from "./BlogSection";
 import JoinCommunity from "./JoinCommunity";
 import FAQSection from "./Faq";
 import { TapeSection } from "./Tape";
@@ -33,7 +33,7 @@ export default function Home() {
         /> */}
         <JoinCommunity />
         <TapeSection />
-        <BlogSection />
+        {/* <BlogSection /> */}
         <FAQSection />
         
     </div>
