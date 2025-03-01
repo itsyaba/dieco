@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import SplitText from "./ui/SplitText/SplitText";
 import { Link } from "react-router-dom";
+import riceImg from "@/assets/rice.jpg";
 
 type Props =  {
     title: string ;
-    backgroundImage : string;
+    backgroundImage?: string;
     breadcrumb: string
 }
-const DescCard = ({ title, backgroundImage, breadcrumb } : Props  ) => {
+const DescCard = ({ title, backgroundImage = riceImg, breadcrumb }: Props) => {
   return (
     <div
       className="relative w-full h-[50vh] flex items-center justify-center bg-cover bg-center"
@@ -37,7 +38,10 @@ const DescCard = ({ title, backgroundImage, breadcrumb } : Props  ) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <Link to={`/#`} className="text-greenish cursor-pointer">Home</Link> {" "}/{" "} {breadcrumb}
+          <Link to={`/#`} className="text-greenish cursor-pointer">
+            Home
+          </Link>{" "}
+          / {breadcrumb}
         </motion.h2>
       </div>
     </div>
