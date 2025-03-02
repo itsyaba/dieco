@@ -28,7 +28,7 @@ const HistorySection = () => {
 
         
   return (
-    <div className="min-h-[90vh] flex items-center container mx-auto py-16" ref={ref}>
+    <div className="min-h-[90vh] flex items-center container mx-auto py-16" ref={ref} id="history">
       <ul className="grid grid-cols-1 grid-rows-none gap-6 md:grid-cols-12 md:grid-rows-3 lg:gap-6 xl:grid-rows-2 bg-transparent">
         <GridItem
           area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"

@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ChevronDown, ChevronUp } from "lucide-react";
 import NavLink from "./NavLink";
 import { Button } from "@/components/ui/button";
-import { navLinks } from "./navData";
+import { navLinks, getDropdownItems } from "./navData";
+import { cn } from "@/lib/utils";
+import { Link, useLocation } from "react-router-dom";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -11,6 +13,11 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+    const { pathname } = useLocation();
+
+
+  const [expandedItems, setExpandedItems] = useState<string[]>([]);
+
   const menuVariants = {
     closed: {
       opacity: 0,
@@ -39,6 +46,37 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     open: { opacity: 1, y: 0 },
   };
 
+  const dropdownVariants = {
+    closed: {
+      height: 0,
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+    open: {
+      height: "auto",
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut",
+        staggerChildren: 0.05,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const toggleExpanded = (href: string) => {
+    setExpandedItems((prev) =>
+      prev.includes(href)
+        ? prev.filter((item) => item !== href)
+        : [...prev, href]
+    );
+  };
+
+  const isExpanded = (href: string) => expandedItems.includes(href);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -51,7 +89,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             onClick={onClose}
           />
           <motion.div
-            className="fixed top-0 right-0 bottom-0 w-[300px] bg-background z-50 shadow-xl p-6 flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-[300px] bg-background z-50 shadow-xl p-6 flex flex-col overflow-y-auto"
             variants={menuVariants}
             initial="closed"
             animate="open"
@@ -64,16 +102,80 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               </Button>
             </div>
 
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-1">
               {navLinks.map((link) => (
                 <motion.div key={link.href} variants={itemVariants}>
-                  <NavLink
-                    href={link.href}
-                    label={link.label}
-                    hasDropdown={link.hasDropdown}
-                    className="text-base py-3"
-                    onClick={onClose}
-                  />
+                  {link.hasDropdown ? (
+                    <div className="border-b border-border/50 last:border-0">
+                      <div
+                        className={cn(
+                          "flex items-center justify-between py-3 px-2 cursor-pointer",
+                          pathname === link.href
+                            ? "text-primary font-medium"
+                            : "text-foreground"
+                        )}
+                        onClick={() => toggleExpanded(link.href)}
+                      >
+                        <span className="text-base">{link.label}</span>
+                        {isExpanded(link.href) ? (
+                          <ChevronUp className="h-4 w-4" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4" />
+                        )}
+                      </div>
+
+                      <AnimatePresence>
+                        {isExpanded(link.href) && (
+                          <motion.div
+                            variants={dropdownVariants}
+                            initial="closed"
+                            animate="open"
+                            exit="closed"
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 py-1 space-y-1 mb-2">
+                              <Link
+                                to={link.href}
+                                className={cn(
+                                  "block py-2 px-2 text-sm rounded-md",
+                                  pathname === link.href
+                                    ? "bg-accent text-accent-foreground"
+                                    : "text-muted-foreground hover:bg-accent/50"
+                                )}
+                                onClick={onClose}
+                              >
+                                Overview
+                              </Link>
+
+                              {getDropdownItems(link.href).map((item, idx) => (
+                                <Link
+                                  key={idx}
+                                  to={item.href}
+                                  className={cn(
+                                    "block py-2 px-2 text-sm rounded-md",
+                                    pathname === item.href
+                                      ? "bg-accent text-accent-foreground"
+                                      : "text-muted-foreground hover:bg-accent/50"
+                                  )}
+                                  onClick={onClose}
+                                >
+                                  {item.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <NavLink
+                      href={link.href}
+                      label={link.label}
+                      hasDropdown={false}
+                      className="text-base py-3 px-2 border-b border-border/50 last:border-0 block"
+                      onClick={onClose}
+                    />
+                  )}
                 </motion.div>
               ))}
             </nav>

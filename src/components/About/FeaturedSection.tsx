@@ -4,8 +4,8 @@ import AnimateTitle from "../AnimateTitle";
 
 export function FeaturesSection() {
   return (
-    <div className="py-20">
-        <AnimateTitle title="Our Goal" />
+    <div className="py-20" id="mission">
+        <AnimateTitle title="Our Mission" />
       <div className="flex itesm-center justify-evenly flex-row gap-10 md:gap-2 max-w-7xl mx-auto ">
         {grid.map((feature) => (
           <div
