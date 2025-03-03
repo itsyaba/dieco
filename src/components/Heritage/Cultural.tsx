@@ -27,7 +27,7 @@ export default function CulturalPage() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  place-items-center min-h-[230vh] md:min-h-[120vh]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10  place-items-center min-h-[250vh] md:min-h-[180vh] lg:min-h-[120vh]">
           <div className="flex justify-center">
             <PinContainer title="Traditional Festivals" href="#">
               <div className="flex flex-col  p-4 tracking-tight text-slate-100/50 w-[300px] h-[400px]">

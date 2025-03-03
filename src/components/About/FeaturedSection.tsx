@@ -4,9 +4,9 @@ import AnimateTitle from "../AnimateTitle";
 
 export function FeaturesSection() {
   return (
-    <div className="py-20" id="mission">
-        <AnimateTitle title="Our Mission" />
-      <div className="flex itesm-center justify-evenly flex-row gap-10 md:gap-2 max-w-7xl mx-auto ">
+    <div className="py-20 container" id="mission">
+      <AnimateTitle title="Our Mission" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto ">
         {grid.map((feature) => (
           <div
             key={feature.title}
@@ -16,7 +16,7 @@ export function FeaturesSection() {
             <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
               {feature.title}
             </p>
-            <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
+            <p className="text-neutral-400 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
               {feature.description}
             </p>
           </div>

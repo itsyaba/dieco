@@ -24,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
 
+        <Route path="/community" element={<EducationDescription />} />
         <Route path="/community/education" element={<EducationDescription />} />
         <Route
           path="/community/healthcare"
@@ -31,6 +32,7 @@ function App() {
         />
         <Route path="/community/religion" element={<ReligionDescription />} />
 
+        <Route path="/heritage" element={<VillagesPage />} />
         <Route path="/heritage/village" element={<VillagesPage />} />
         <Route path="/heritage/cultural" element={<CulturalPage />} />
         <Route path="/heritage/traditionl" element={<TraditionlPage />} />

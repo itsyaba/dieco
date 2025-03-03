@@ -3,8 +3,8 @@ import CEO from "@/assets/ceo.jpg"
 import BlurText from "../ui/BlurText/BlurText";
 const AboutSection = () => {
   return (
-    <div className="flex items-center justify-evenly text-darkish max-w-5xl mx-auto my-12 h-[75vh]" id="team">
-      <div className="w-3/6">
+    <div className="container flex items-center justify-evenly flex-col-reverse gap-8 md:flex-row text-darkish max-w-5xl mx-auto my-12 min-h-[75vh]" id="team">
+      <div className="md:w-3/6">
         {/* <h1 className="">MEET OUR CHAIRMAN</h1> */}
         <BlurText
           text="MEET OUR CHAIRMAN"

@@ -82,7 +82,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       {isOpen && (
         <>
           <motion.div
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -172,7 +172,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                       href={link.href}
                       label={link.label}
                       hasDropdown={false}
-                      className="text-base py-3 px-2 border-b border-border/50 last:border-0 block"
+                      className="text-base py-3 px-2 border-b border-border/50 last:border-0 block text-white"
                       onClick={onClose}
                     />
                   )}

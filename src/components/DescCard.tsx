@@ -17,7 +17,7 @@ const DescCard = ({ title, backgroundImage = riceImg, breadcrumb }: Props) => {
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <div className="relative text-center text-white">
         <motion.h1
-          className="text-7xl font-extrabold uppercase tracking-tighter "
+          className="text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase tracking-tighter "
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -33,7 +33,7 @@ const DescCard = ({ title, backgroundImage = riceImg, breadcrumb }: Props) => {
           />
         </motion.h1>
         <motion.h2
-          className="mt-2 text-xl text-zinc-200 font-bold italic uppercase"
+          className="mt-2 text-md md:text-xl text-zinc-200 font-bold italic uppercase"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
