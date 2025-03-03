@@ -68,7 +68,7 @@ const dropdownItems: Record<string, DropdownItem[]> = {
   ],
   "/heritage": [
     { href: "/heritage/village", label: "Our Village", description: "We have a rich history vibrant culture and enduring spirit of the Dikome Balue people." },
-    { href: "/heritage/artifacts", label: "Artifacts", description: "Historical artifacts and preservation" },
+    { href: "/heritage/cultural", label: "Cultural Heritage", description: "Historical artifacts and preservation" },
     { href: "/heritage/traditionl", label: "Traditional ", description: "Traditional practices and customs" },
     { href: "/heritage/macoros", label: "Macoros", description: "A traditional sport of the Dikome Balue community, embodies the spirit of camaraderie, athleticism, and cultural pride. " },
   ],

@@ -12,10 +12,9 @@ export default function VillagesPage() {
     <div className="mt-40 bg-gray-100 ">
       <DescCard title="Villages " breadcrumb="Villages" />
       <div className="max-w-7xl mx-auto min-h-screen py-12 px-4 sm:px-6 lg:px-8 ">
-
         <AnimatedSection className="max-w-6xl mx-auto text-center mb-16 container ">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
-            A traditional sport of the Dikome Balue community
+            Dikome Balue
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
             Dikome Balue has a rich history, vibrant culture, and enduring
