@@ -5,6 +5,7 @@ import { Home, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "@/assets/dideco-logo.png";
 import { Newsletter } from "./Newsletter";
+import { navLinks } from "@/Navbar/navData";
 
 
 export function Footer() {
@@ -163,24 +164,17 @@ export function Footer() {
             QUICK LINKS
           </h3>
           <ul className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            {[
-              "Home",
-              "About Us",
-              "Contact Us",
-              "Important Links",
-              "Dikome Talents",
-              "Donate",
-            ].map((item) => (
+            {navLinks.map((item) => (
               <motion.li
-                key={item}
+                key={item.href}
                 whileHover={{ y: -2 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <Link
-                  to="#"
+                  to={item.href}
                   className="text-gray-400 hover:text-green-500 text-sm transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               </motion.li>
             ))}

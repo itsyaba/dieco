@@ -11,7 +11,7 @@ import JoinCommunity from "../Home/JoinCommunity";
 import DescCard from "../DescCard";
 import BgImg from "@/assets/who_we_are-1.jpeg"
 // Custom animated section component
-const AnimatedSection = ({
+export const AnimatedSection = ({
   children,
   className = "",
   delay = 0,

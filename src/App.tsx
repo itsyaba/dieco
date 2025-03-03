@@ -8,6 +8,7 @@ import HealthcareDescription from "./components/Community/HealthcareDescription"
 import ReligionDescription from "./components/Community/ReligionDescription";
 import ScrollToTop from "./lib/ScrollToTop";
 import Macoros from "./components/Heritage/Macoros";
+import VillagesPage from "./components/Heritage/Village";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         />
         <Route path="/community/religion" element={<ReligionDescription />} />
 
+        <Route path="/heritage/village" element={<VillagesPage />} />
         <Route path="/heritage/macoros" element={<Macoros />} />
       </Routes>
       <Footer />
