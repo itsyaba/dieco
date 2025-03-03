@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import toast from "react-hot-toast";
 
 const TIERS = [
   {
@@ -54,9 +56,16 @@ interface SponsorshipTiersProps {
 export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [customAmount, setCustomAmount] = useState<string>("");
+  const [finaleAmount , setFinalAmount] = useState<number>(0)
+const clientId =
+  import.meta.env.VITE_PAYPAL_CLIENT_ID ||
+  process.env.REACT_APP_PAYPAL_CLIENT_ID ||
+  "";
 
   const handleOptionChange = (value: string) => {
     setSelectedOption(value);
+    console.log(value);
+    
     if (value !== "custom") {
       setCustomAmount("");
     }
@@ -74,6 +83,7 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
     if (selectedOption === "custom") {
       totalAmount = Number.parseInt(customAmount) || 0;
       message = `Custom amount: $${totalAmount.toLocaleString()}`;
+      
     } else {
       const selectedTier = TIERS.find((tier) => tier.name === selectedOption);
       if (selectedTier) {
@@ -81,16 +91,21 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
         message = `Selected tier: ${
           selectedTier.name
         } ($${totalAmount.toLocaleString()})`;
+
+        console.log(totalAmount);
+        setFinalAmount(totalAmount)
+        
       }
     }
 
-    alert(
+    toast.success(
       `${message}\nTotal donation: $${totalAmount.toLocaleString()} for ${
         selectedProject === "water"
           ? "Clean Drinking Water"
           : "Dikome Balue Hospital Rebuild"
       } project`
     );
+    // toast.success(message)
   };
 
   return (
@@ -161,11 +176,58 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
           </CardContent>
         </Card>
       </RadioGroup>
+      <PayPalScriptProvider options={{ clientId }}>
+        <Button
+          onClick={handleSubmit}
+          className="w-full bg-greenish py-4 hover:bg-greenish/70 text-white
+      text-xl"
+          size="lg"
+        >
+          Confirm Donation
+        </Button>
 
-      <Button onClick={handleSubmit} className="w-full bg-greenish py-4 hover:bg-greenish/70 text-white
-      text-xl" size="lg">
-        Confirm Donation
-      </Button>
+        <PayPalButtons
+          style={{
+            layout: "horizontal",
+            color: "gold",
+            shape: "pill",
+            label: "paypal",
+            tagline: true,
+            height: 55,
+          }}
+          createOrder={(_data, actions) => {
+            if (!actions.order) {
+              toast.error("Order actions not available");
+              return Promise.reject(new Error("Order actions not available"));
+            }
+            return actions.order.create({
+              intent: "CAPTURE",
+              purchase_units: [
+                {
+                  amount: {
+                    currency_code: "USD",
+                    value: finaleAmount.toString(),
+                  },
+                },
+              ],
+            });
+          }}
+          onApprove={async (_data, actions) => {
+            if (!actions.order) {
+              toast.error("Order actions not available");
+              return Promise.reject(new Error("Order actions not available"));
+            }
+            return actions.order.capture().then((details) => {
+              const payerName =
+                details.purchase_units?.[0]?.shipping?.name?.full_name ||
+                "Donor";
+              toast.success(
+                `Thank you, ${payerName}! You donated $${finaleAmount}`
+              );
+            });
+          }}
+        />
+      </PayPalScriptProvider>
     </div>
   );
 }

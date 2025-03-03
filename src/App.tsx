@@ -14,6 +14,7 @@ import TraditionlPage from "./components/Heritage/Traditionl";
 import ProjectsPage from "./components/Projects/Projects";
 import DonatePage from "./components/Donate/Donate";
 import OutreachPage from "./components/Outreach/Outreach";
+import ContactSection from "./components/Contact/contact";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/outreach" element={<OutreachPage />} />
         <Route path="/donate" element={<DonatePage />} />
+        <Route path="/contact" element={<ContactSection />} />
 
       </Routes>
       <Footer />
