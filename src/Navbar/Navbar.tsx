@@ -127,15 +127,17 @@ const Navbar = () => {
                   hasDropdown={link.hasDropdown}
                 />
               ))}
-              <button
-                className={cn(
-                  "ml-2 px-5 py-2 text-xl backdrop-blur-md border  border-greenish/40 text-white mx-auto text-center rounded-full relative  hover:scale-110 transition flex items-center justify-center",
+              <Link to="/donate">
+                <button
+                  className={cn(
+                    "ml-2 px-5 py-2 text-xl backdrop-blur-md border  border-greenish/40 text-white mx-auto text-center rounded-full relative  hover:scale-110 transition flex items-center justify-center",
 
-                  isScrolled ? "bg-greenish/70" : "bg-greenish"
-                )}
-              >
-                <span>Donate Now</span>
-              </button>
+                    isScrolled ? "bg-greenish/70" : "bg-greenish"
+                  )}
+                >
+                  <span>Donate Now</span>
+                </button>
+              </Link>
             </div>
           </div>
 

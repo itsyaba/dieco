@@ -11,6 +11,9 @@ import Macoros from "./components/Heritage/Macoros";
 import VillagesPage from "./components/Heritage/Village";
 import CulturalPage from "./components/Heritage/Cultural";
 import TraditionlPage from "./components/Heritage/Traditionl";
+import ProjectsPage from "./components/Projects/Projects";
+import DonatePage from "./components/Donate/Donate";
+import OutreachPage from "./components/Outreach/Outreach";
 
 function App() {
   return (
@@ -32,6 +35,11 @@ function App() {
         <Route path="/heritage/cultural" element={<CulturalPage />} />
         <Route path="/heritage/traditionl" element={<TraditionlPage />} />
         <Route path="/heritage/macoros" element={<Macoros />} />
+
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/outreach" element={<OutreachPage />} />
+        <Route path="/donate" element={<DonatePage />} />
+
       </Routes>
       <Footer />
     </>
