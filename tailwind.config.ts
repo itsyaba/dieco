@@ -24,6 +24,7 @@ const config: Config = {
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
   				foreground: 'hsl(var(--primary-foreground))'
+				
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
@@ -94,11 +95,20 @@ const config: Config = {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+			 shimmer: {
+          from: {
+            backgroundPosition: "0 0",
+          },
+          to: {
+            backgroundPosition: "-200% 0",
+          },
+        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
+			shimmer: "shimmer 2s linear infinite",
   		}
   	}
   },

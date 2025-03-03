@@ -4,6 +4,7 @@ import img2 from "@/assets/img1.jpg";
 import img3 from "@/assets/imggg.jpg";
 import img4 from "@/assets/news-13.jpg";
 import CountUp from "./animated-counter";
+import { Link } from "react-router-dom";
 
 const JoinCommunity = () => {
   return (
@@ -36,15 +37,16 @@ const JoinCommunity = () => {
       </motion.h1>
 
       <p className="text-gray-500">people already joining</p>
-
-      <motion.button
-        className="px-6 py-4 text-xl backdrop-blur-md border bg-darkish/60 border-greenish/40 text-white mx-auto text-center rounded-full relative mt-4 hover:scale-110 transition z-20"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <span> I want to join community →</span>
-        <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-darkish via-greenish to-darkish" />
-      </motion.button>
+      <Link to="/community/education">
+        <motion.button
+          className="px-6 py-4 text-xl backdrop-blur-md border bg-darkish/60 border-greenish/40 text-white mx-auto text-center rounded-full relative mt-4 hover:scale-110 transition z-20"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span> I want to join community →</span>
+          <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-darkish via-greenish to-darkish" />
+        </motion.button>
+      </Link>
 
       <div className=" w-full flex justify-center mt-10">
         <motion.img

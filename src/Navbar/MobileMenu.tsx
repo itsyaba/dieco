@@ -134,18 +134,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             className="overflow-hidden"
                           >
                             <div className="pl-4 py-1 space-y-1 mb-2">
-                              <Link
-                                to={link.href}
-                                className={cn(
-                                  "block py-2 px-2 text-sm rounded-md",
-                                  pathname === link.href
-                                    ? "bg-accent text-accent-foreground"
-                                    : "text-muted-foreground hover:bg-accent/50"
-                                )}
-                                onClick={onClose}
-                              >
-                                Overview
-                              </Link>
+
 
                               {getDropdownItems(link.href).map((item, idx) => (
                                 <Link

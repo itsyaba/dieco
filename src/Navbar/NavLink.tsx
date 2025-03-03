@@ -72,22 +72,7 @@ const NavLink: FC<NavLinkProps> = ({
               onMouseLeave={() => setIsOpen(false)}
             >
               <ul className="grid w-[200px] gap-1 p-2">
-                <li>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to={href}
-                      className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors  ",
-                        pathname === href
-                          ? "bg-accent text-accent-foreground"
-                          : "text-muted-foreground"
-                      )}
-                      onClick={onClick}
-                    >
-                      <div className="text-sm font-medium">Overview</div>
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
+
                 {dropdownItems.map((item, index) => (
                   <li key={index}>
                     <NavigationMenuLink asChild>
