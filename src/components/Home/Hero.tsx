@@ -23,10 +23,10 @@ export default function Hero() {
         }}
         className="z-50 flex flex-col justify-center items-center"
       >
-        <motion.p className="uppercase font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
+        <motion.p className="uppercase font-bold text-3xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
           preserving tradition Building <br />  tomorrow
         </motion.p>
-        <motion.p className="max-w-4xl text-md mx-auto text-center">
+        <motion.p className="w-5/6  md:max-w-4xl text-md mx-auto text-center">
             Welcome to DIDECO North America, where we honor the rich heritage of the Dikome Balue people. 
             Join us as we celebrate our past, empower our future, and forge new connections across continents.
         </motion.p>

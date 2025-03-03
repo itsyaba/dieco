@@ -9,7 +9,7 @@ const JoinCommunity = () => {
   return (
     <div className=" relative flex flex-col items-center justify-center text-center  py-16 px-4 md:px-16 h-[80vh] bg-greenish/60">
       <motion.h2
-        className="text-lg md:text-4xl max-w-5xl text-gray-700 font-semibold"
+        className="text-lg md:text-4xl max-w-5xl text-gray-700 font-semibold relative z-40"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -38,7 +38,7 @@ const JoinCommunity = () => {
       <p className="text-gray-500">people already joining</p>
 
       <motion.button
-        className="px-6 py-4 text-xl backdrop-blur-md border bg-darkish/60 border-greenish/40 text-white mx-auto text-center rounded-full relative mt-4 hover:scale-110 transition"
+        className="px-6 py-4 text-xl backdrop-blur-md border bg-darkish/60 border-greenish/40 text-white mx-auto text-center rounded-full relative mt-4 hover:scale-110 transition z-20"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -50,7 +50,7 @@ const JoinCommunity = () => {
         <motion.img
           src={img}
           alt="Person 1"
-          className="absolute left-24 top-24 w-20 md:w-36 rounded-lg shadow-lg"
+          className="absolute left-24 top-12 lg:top-24 w-20 md:w-36 rounded-lg shadow-lg"
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
         />
@@ -64,7 +64,7 @@ const JoinCommunity = () => {
         <motion.img
           src={img4}
           alt="Person 3"
-          className="absolute right-24 top-24 w-20 md:w-32 rounded-lg shadow-lg hover:scale-125"
+          className="absolute right-24 top-12 lg:top-24 w-20 md:w-32 rounded-lg shadow-lg hover:scale-125"
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
         />

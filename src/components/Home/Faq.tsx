@@ -81,64 +81,68 @@ const FAQSection = () => {
   };
 
   return (
-    <section
-      ref={ref}
-      className="bg-darkish container my-24 min-h-[80vh] p-10 rounded-xl flex items-center justify-center"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Stats Section with Masonry Effect */}
-        <motion.div
-          className="grid grid-cols-2 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              className={`bg-greenish/60 p-6 rounded-lg shadow-md flex flex-col items-center text-center justify-center`}
-              variants={itemVariants}
-              whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              {stat.icon}
-              <motion.h3
-                className="text-3xl font-bold mt-4"
-                initial={{ opacity: 0, y: -20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+    <div className="mx-2">
+      <section
+        ref={ref}
+        className="bg-darkish  my-24 p-4 md:p-10 rounded-xl flex items-center justify-center overflow-clip"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Stats Section with Masonry Effect */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className={`bg-greenish/60 p-6 rounded-lg shadow-md flex flex-col items-center text-center justify-center`}
+                variants={itemVariants}
+                whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                {stat.number}
-              </motion.h3>
-              <motion.p
-                className="text-gray-600 mt-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3, duration: 0.5 }}
-              >
-                {stat.label}
-              </motion.p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* FAQ Section */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Accordion type="single" collapsible className="w-[450px]">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
-              </AccordionItem>
+                {stat.icon}
+                <motion.h3
+                  className="text-3xl font-bold mt-4"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={
+                    inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
+                  }
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                  {stat.number}
+                </motion.h3>
+                <motion.p
+                  className="text-gray-600 mt-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  {stat.label}
+                </motion.p>
+              </motion.div>
             ))}
-          </Accordion>
-        </motion.div>
-      </div>
-    </section>
+          </motion.div>
+
+          {/* FAQ Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Accordion type="single" collapsible className="w-[450px]">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`faq-${index}`}>
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 };
 

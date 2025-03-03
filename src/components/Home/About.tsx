@@ -38,7 +38,7 @@ empowering our people, and fostering unity across continents."
             src={Img}
             width={500}
             alt="linear demo img"
-            className="absolute -right-[35%] filter top-36 object-cover rounded-2xl"
+            className="absolute -right-[35%] filter  -bottom-10 md:bottom-0 md:top-36 object-cover rounded-2xl"
           />
         </WobbleCard>
         <WobbleCard containerClassName="col-span-1 min-h-[300px]">
