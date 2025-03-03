@@ -7,7 +7,6 @@ import {
   CardFooter,
   CardDescription,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -56,57 +55,44 @@ interface SponsorshipTiersProps {
 export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [customAmount, setCustomAmount] = useState<string>("");
-  const [finaleAmount , setFinalAmount] = useState<number>(0)
-const clientId =
-  import.meta.env.VITE_PAYPAL_CLIENT_ID ||
-  process.env.REACT_APP_PAYPAL_CLIENT_ID ||
-  "";
+  const [finalAmount, setFinalAmount] = useState<number>(10);
+
+  const clientId =
+    import.meta.env.VITE_PAYPAL_CLIENT_ID ||
+    process.env.REACT_APP_PAYPAL_CLIENT_ID ||
+    "";
 
   const handleOptionChange = (value: string) => {
     setSelectedOption(value);
-    console.log(value);
-    
     if (value !== "custom") {
+      const tier = TIERS.find((tier) => tier.name === value);
+      setFinalAmount(tier ? tier.amount : 0);
       setCustomAmount("");
     }
   };
 
   const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const amount = parseFloat(e.target.value) || 0;
     setCustomAmount(e.target.value);
     setSelectedOption("custom");
+    setFinalAmount(amount);
   };
 
   const handleSubmit = () => {
-    let totalAmount = 0;
-    let message = "";
-
-    if (selectedOption === "custom") {
-      totalAmount = Number.parseInt(customAmount) || 0;
-      message = `Custom amount: $${totalAmount.toLocaleString()}`;
-      
-    } else {
-      const selectedTier = TIERS.find((tier) => tier.name === selectedOption);
-      if (selectedTier) {
-        totalAmount = selectedTier.amount;
-        message = `Selected tier: ${
-          selectedTier.name
-        } ($${totalAmount.toLocaleString()})`;
-
-        console.log(totalAmount);
-        setFinalAmount(totalAmount)
-        
-      }
+    if (finalAmount <= 0) {
+      toast.error("Please select a sponsorship tier or enter a valid amount.");
+      return;
     }
 
     toast.success(
-      `${message}\nTotal donation: $${totalAmount.toLocaleString()} for ${
+      `Donation confirmed: $${finalAmount.toLocaleString()} for ${
         selectedProject === "water"
           ? "Clean Drinking Water"
           : "Dikome Balue Hospital Rebuild"
-      } project`
+      } project.`
     );
-    // toast.success(message)
   };
+  
 
   return (
     <div className="space-y-6">
@@ -176,58 +162,55 @@ const clientId =
           </CardContent>
         </Card>
       </RadioGroup>
-      <PayPalScriptProvider options={{ clientId }}>
-        <Button
-          onClick={handleSubmit}
-          className="w-full bg-greenish py-4 hover:bg-greenish/70 text-white
-      text-xl"
+        <PayPalScriptProvider options={{ clientId }}>
+          {/* <Button
+          className="w-full bg-greenish py-4 hover:bg-greenish/70 text-white text-xl"
           size="lg"
         >
           Confirm Donation
-        </Button>
+        </Button> */}
 
-        <PayPalButtons
-          style={{
-            layout: "horizontal",
-            color: "gold",
-            shape: "pill",
-            label: "paypal",
-            tagline: true,
-            height: 55,
-          }}
-          createOrder={(_data, actions) => {
-            if (!actions.order) {
-              toast.error("Order actions not available");
-              return Promise.reject(new Error("Order actions not available"));
-            }
-            return actions.order.create({
-              intent: "CAPTURE",
-              purchase_units: [
-                {
-                  amount: {
-                    currency_code: "USD",
-                    value: finaleAmount.toString(),
+          <PayPalButtons
+            onClick={handleSubmit}
+            style={{
+              layout: "horizontal",
+              color: "gold",
+              shape: "pill",
+              label: "paypal",
+              tagline: true,
+              height: 55,
+            }}
+            createOrder={(_data, actions) => {
+              return actions.order.create({
+                intent: "CAPTURE",
+                purchase_units: [
+                  {
+                    amount: {
+                      currency_code: "USD",
+                      value: finalAmount.toFixed(2),
+                    },
                   },
-                },
-              ],
-            });
-          }}
-          onApprove={async (_data, actions) => {
-            if (!actions.order) {
-              toast.error("Order actions not available");
-              return Promise.reject(new Error("Order actions not available"));
-            }
-            return actions.order.capture().then((details) => {
-              const payerName =
-                details.purchase_units?.[0]?.shipping?.name?.full_name ||
-                "Donor";
-              toast.success(
-                `Thank you, ${payerName}! You donated $${finaleAmount}`
-              );
-            });
-          }}
-        />
-      </PayPalScriptProvider>
+                ],
+              });
+            }}
+            onApprove={async (_data, actions) => {
+              if (!actions.order) {
+                toast.error("Order capture failed. Please try again.");
+                return;
+              }
+              return actions.order.capture().then((details) => {
+                const payerName =
+                  details.purchase_units?.[0]?.shipping?.name?.full_name ||
+                  "Donor";
+                toast.success(
+                  `Thank you, ${payerName}! You donated $${finalAmount.toFixed(
+                    2
+                  )}`
+                );
+              });
+            }}
+          />
+        </PayPalScriptProvider>
     </div>
   );
 }

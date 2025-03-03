@@ -57,7 +57,7 @@ export default function ContactSection() {
 
   return (
     <div className="mt-40 text-darkish">
-      <DescCard title="About us" breadcrumb="ABOUT US" />
+      <DescCard title="Contact us" breadcrumb="Contact US" />
       <section className="w-full py-20 overflow-hidden relative " id="contact">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-darkish rounded-full -translate-y-1/2 translate-x-1/2" />
