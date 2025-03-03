@@ -10,6 +10,7 @@ import ScrollToTop from "./lib/ScrollToTop";
 import Macoros from "./components/Heritage/Macoros";
 import VillagesPage from "./components/Heritage/Village";
 import CulturalPage from "./components/Heritage/Cultural";
+import TraditionlPage from "./components/Heritage/Traditionl";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
 
         <Route path="/heritage/village" element={<VillagesPage />} />
         <Route path="/heritage/cultural" element={<CulturalPage />} />
+        <Route path="/heritage/traditionl" element={<TraditionlPage />} />
         <Route path="/heritage/macoros" element={<Macoros />} />
       </Routes>
       <Footer />
