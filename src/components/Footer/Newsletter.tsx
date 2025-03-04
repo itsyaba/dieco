@@ -37,7 +37,7 @@ export function Newsletter() {
           <span className="text-green-400 font-medium tracking-wider text-2xl">
             DONATE
           </span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold text-white mb-6 capitalize">
+          <h2 className="mt-4 text-4xl md:text-7xl font-bold text-white mb-6 capitalize">
             save lives by donating
           </h2>
           <form className="max-w-md mx-auto">
