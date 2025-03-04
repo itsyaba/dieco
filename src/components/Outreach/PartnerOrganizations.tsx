@@ -18,9 +18,9 @@ export default function PartnerOrganizations() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className=""
+            className="   mb-2  max-h-48 md:max-h-full"
           >
-            <CardContainer className="">
+            <CardContainer className=" m-0">
               <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-4 border">
                 <CardItem
                   translateZ="20"
@@ -31,17 +31,12 @@ export default function PartnerOrganizations() {
                 <CardItem
                   as="p"
                   translateZ="60"
-                  className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                  className="text-neutral-500 text-sm max-w-md mt-2 dark:text-neutral-300"
                 >
-                  Collaborate with {partner.name} for community development and
-                  support.
+                  Collaborate with {partner.name} for community development and support.
                 </CardItem>
                 <CardItem translateZ="100" className="w-full mt-4">
-                  <Link
-                    to={partner.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link to={partner.url} target="_blank" rel="noopener noreferrer">
                     <button className="rounded-xl bg-greenish  text-md px-4 py-3 w-full ">
                       Visit Website
                     </button>

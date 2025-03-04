@@ -1,10 +1,7 @@
 import { Dot } from "lucide-react";
 import { Fragment } from "react";
 
-const words = [
-  "Let's help each other",
-  
-];
+const words = ["Let's help each other"];
 
 export const TapeSection = () => {
   return (
@@ -16,7 +13,7 @@ export const TapeSection = () => {
               <Fragment key={idx}>
                 {words.map((word) => (
                   <div key={word} className="inline-flex gap-4">
-                    <span className="text-gray-900 uppercase font-extrabold text-3xl">
+                    <span className="text-gray-900 uppercase font-extrabold text-xl md:text-3xl">
                       {word}
                     </span>
                     <Dot className=" text-gray-900 " />

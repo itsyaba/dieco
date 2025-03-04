@@ -7,7 +7,6 @@ import Logo from "@/assets/dideco-logo.png";
 import { Newsletter } from "./Newsletter";
 import { navLinks } from "@/Navbar/navData";
 
-
 export function Footer() {
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -56,30 +55,21 @@ export function Footer() {
     >
       <Newsletter />
       <div className="container mx-auto px-4 md:px-6 pt-6">
-        <div className="grid gap-12 md:grid-cols-3 mb-12">
+        <div className="grid gap-12 md:grid-cols-3 mb-6">
           {/* Column 1 - Logo and Info */}
           <motion.div className="space-y-6" variants={columnVariants}>
             <Link to="/#" className="block w-32">
-              <img
-                src={Logo}
-                alt="DIDECO Logo"
-                width={128}
-                height={128}
-                className="rounded-lg"
-              />
+              <img src={Logo} alt="DIDECO Logo" width={128} height={128} className="rounded-lg" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Through collaborative efforts and meaningful initiatives, Dikome
-              Balue Development and Cultural Organization (DIDECO) North America
-              builds a stronger, more connected Dikome Balue diaspora while
-              positively impacting the lives of those back home in Cameroon.
+              Through collaborative efforts and meaningful initiatives, Dikome Balue Development and
+              Cultural Organization (DIDECO) North America builds a stronger, more connected Dikome
+              Balue diaspora while positively impacting the lives of those back home in Cameroon.
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-400">
                 <Home className="h-5 w-5 text-green-500" />
-                <span className="text-sm">
-                  Collins Street West,121 King Street, Melbourne.
-                </span>
+                <span className="text-sm">Collins Street West,121 King Street, Melbourne.</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
                 <Phone className="h-5 w-5 text-green-500" />
@@ -99,7 +89,6 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                "About Us",
                 "History",
                 "DIDECO Branches",
                 "Board of Directors",
@@ -113,7 +102,7 @@ export function Footer() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <Link
-                    to="#"
+                    to="/about"
                     className="text-gray-400 hover:text-green-500 text-sm transition-colors"
                   >
                     {item}
@@ -123,63 +112,29 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Column 3 - Community Links */}
+          {/* Quick Links Section */}
           <motion.div className="space-y-6" variants={columnVariants}>
             <h3 className="text-lg font-semibold after:content-[''] after:block after:w-12 after:h-1 after:bg-green-500 after:mt-2">
-              OUR COMMUNITY/HERITAGE
+              QUICK LINKS
             </h3>
             <ul className="space-y-3">
-              {[
-                "Education",
-                "Healthcare",
-                "Religion",
-                "Our Village",
-                "Cultural Heritage",
-                "Traditional Dishes",
-                "Macoros",
-              ].map((item) => (
+              {navLinks.map((item) => (
                 <motion.li
-                  key={item}
-                  whileHover={{ x: 5 }}
+                  key={item.href}
+                  whileHover={{ y: -2 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <Link
-                    to="#"
+                    to={item.href}
                     className="text-gray-400 hover:text-green-500 text-sm transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </motion.li>
               ))}
             </ul>
           </motion.div>
         </div>
-
-        {/* Quick Links Section */}
-        <motion.div
-          className="border-t border-gray-800 pt-8"
-          variants={columnVariants}
-        >
-          <h3 className="text-lg font-semibold mb-6 after:content-[''] after:block after:w-12 after:h-1 after:bg-green-500 after:mt-2">
-            QUICK LINKS
-          </h3>
-          <ul className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            {navLinks.map((item) => (
-              <motion.li
-                key={item.href}
-                whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <Link
-                  to={item.href}
-                  className="text-gray-400 hover:text-green-500 text-sm transition-colors"
-                >
-                  {item.label}
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
-        </motion.div>
 
         {/* Copyright */}
         <motion.div
