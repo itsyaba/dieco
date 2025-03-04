@@ -34,7 +34,7 @@ export function Newsletter() {
           animate={inView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <span className="text-green-400 font-medium tracking-wider text-sm">
+          <span className="text-green-400 font-medium tracking-wider text-2xl">
             DONATE
           </span>
           <h2 className="mt-4 text-4xl md:text-5xl font-bold text-white mb-6 capitalize">
