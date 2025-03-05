@@ -5,13 +5,11 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { DropdownItem, getDropdownItems } from "./navData";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
 
 interface NavLinkProps {
   href: string;
