@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronDown, ChevronUp } from "lucide-react";
+import { X, ChevronDown, ChevronUp, ChevronRight } from "lucide-react";
 import NavLink from "./NavLink";
 import { Button } from "@/components/ui/button";
-import { navLinks, getDropdownItems } from "./navData";
+import { navLinks, getDropdownItems, DropdownItem } from "./navData";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 
@@ -12,9 +12,70 @@ interface MobileMenuProps {
   onClose: () => void;
 }
 
-const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
-    const { pathname } = useLocation();
+interface SubMenuProps {
+  item: DropdownItem;
+  level?: number;
+  onClose: () => void;
+}
 
+const SubMenu: FC<SubMenuProps> = ({ item, level = 0, onClose }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const { pathname } = useLocation();
+
+  const hasChildren = item.children && item.children.length > 0;
+
+  return (
+    <div className={cn("border-l border-border/50", level > 0 && "ml-4")}>
+      {hasChildren ? (
+        <>
+          <div
+            className={cn(
+              "flex items-center justify-between py-2 px-2 cursor-pointer",
+              pathname === item.href ? "text-primary font-medium" : "text-foreground"
+            )}
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            <span className="text-sm">{item.label}</span>
+            {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+          </div>
+          <AnimatePresence>
+            {isExpanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden"
+              >
+                <div className="py-1 space-y-1">
+                  {item.children.map((child, idx) => (
+                    <SubMenu key={idx} item={child} level={level + 1} onClose={onClose} />
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+      ) : (
+        <Link
+          to={item.href}
+          className={cn(
+            "block py-2 px-2 text-sm rounded-md",
+            pathname === item.href
+              ? "bg-accent text-accent-foreground"
+              : "text-muted-foreground hover:bg-accent/50"
+          )}
+          onClick={onClose}
+        >
+          {item.label}
+        </Link>
+      )}
+    </div>
+  );
+};
+
+const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+  const { pathname } = useLocation();
 
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
@@ -69,9 +130,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
   const toggleExpanded = (href: string) => {
     setExpandedItems((prev) =>
-      prev.includes(href)
-        ? prev.filter((item) => item !== href)
-        : [...prev, href]
+      prev.includes(href) ? prev.filter((item) => item !== href) : [...prev, href]
     );
   };
 
@@ -110,9 +169,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                       <div
                         className={cn(
                           "flex items-center justify-between py-3 px-2 cursor-pointer",
-                          pathname === link.href
-                            ? "text-primary font-medium"
-                            : "text-foreground"
+                          pathname === link.href ? "text-primary font-medium" : "text-foreground"
                         )}
                         onClick={() => toggleExpanded(link.href)}
                       >
@@ -134,9 +191,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                             className="overflow-hidden"
                           >
                             <div className="pl-4 py-1 space-y-1 mb-2">
-
-
-                              {getDropdownItems(link.href).map((item, idx) => (
+                              {/* {getDropdownItems(link.href).map((item, idx) => (
                                 <Link
                                   key={idx}
                                   to={item.href}
@@ -150,6 +205,9 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                                 >
                                   {item.label}
                                 </Link>
+                              ))} */}
+                              {getDropdownItems(link.href).map((item, idx) => (
+                                <SubMenu key={idx} item={item} onClose={onClose} />
                               ))}
                             </div>
                           </motion.div>

@@ -8,6 +8,7 @@ export interface DropdownItem {
   href: string;
   label: string;
   description?: string;
+  children?: DropdownItem[];
 }
 
 export interface NavLinkType {
@@ -20,6 +21,7 @@ export const navLinks: NavLink[] = [
   {
     href: "/",
     label: "HOME",
+    hasDropdown: true,
   },
   {
     href: "/about",
@@ -31,11 +33,11 @@ export const navLinks: NavLink[] = [
     label: "OUR COMMUNITY",
     hasDropdown: true,
   },
-  {
-    href: "/heritage",
-    label: "OUR HERITAGE",
-    hasDropdown: true,
-  },
+  // {
+  //   href: "/heritage",
+  //   label: "OUR HERITAGE",
+  //   hasDropdown: true,
+  // },
   // {
   //   href: "/gallery",
   //   label: "GALLERY",
@@ -62,6 +64,61 @@ export const navLinks: NavLink[] = [
 
 // Dropdown items for each navigation link
 const dropdownItems: Record<string, DropdownItem[]> = {
+  "/": [
+    {
+      href: "/heritage",
+      label: "Heritage",
+      description: "Explore the rich heritage of the Dikome Balue community.",
+      children: [
+        {
+          href: "/heritage/village",
+          label: "Our Village",
+          description:
+            "We have a rich history, vibrant culture, and enduring spirit of the Dikome Balue people.",
+        },
+        {
+          href: "/heritage/cultural",
+          label: "Cultural Heritage",
+          description: "Historical artifacts and preservation",
+        },
+        {
+          href: "/heritage/traditional",
+          label: "Traditional Dishes",
+          description:
+            "Our dishes are a flavorful reflection of our cultural heritage and culinary traditions.",
+        },
+        {
+          href: "/heritage/macoros",
+          label: "Macoros",
+          description:
+            "A traditional sport of the Dikome Balue community, embodying the spirit of camaraderie, athleticism, and cultural pride.",
+        },
+      ],
+    },
+    {
+      href: "/about",
+      label: "Nganos Ya Mboka",
+      description: "Learn about the governance and leadership of the Dikome Balue community.",
+      children: [
+        {
+          href: "/about#history",
+          label: "History",
+          description: "The historical evolution of Nganos Ya Mboka.",
+        },
+        {
+          href: "/about#mission",
+          label: "Diedeco Branches",
+          description: "The various branches of the Diedeco system.",
+        },
+        {
+          href: "/about#team",
+          label: "Chiefs",
+          description: "The traditional chiefs and their roles in the community.",
+        },
+      ],
+    },
+  ],
+
   "/about": [
     {
       href: "/about#mission",
@@ -96,31 +153,6 @@ const dropdownItems: Record<string, DropdownItem[]> = {
         "Education is the corner stone of empowerment and progress within the Dikome Balue community.",
     },
     { href: "/donate", label: "Donate", description: "Support our community initiatives" },
-  ],
-  "/heritage": [
-    {
-      href: "/heritage/village",
-      label: "Our Village",
-      description:
-        "We have a rich history vibrant culture and enduring spirit of the Dikome Balue people.",
-    },
-    {
-      href: "/heritage/cultural",
-      label: "Cultural Heritage",
-      description: "Historical artifacts and preservation",
-    },
-    {
-      href: "/heritage/traditional",
-      label: "Traditional Dishes",
-      description:
-        "Our dishes are a flavorful reflection of our cultural heritage and culinary traditions.",
-    },
-    {
-      href: "/heritage/macoros",
-      label: "Macoros",
-      description:
-        "A traditional sport of the Dikome Balue community, embodies the spirit of camaraderie, athleticism, and cultural pride. ",
-    },
   ],
   // "/gallery": [
   //   { href: "/gallery/photos", label: "Photo Gallery", description: "Images from our events and projects" },

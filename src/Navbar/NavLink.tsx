@@ -9,8 +9,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { getDropdownItems } from "./navData";
+import { DropdownItem, getDropdownItems } from "./navData";
 import { Link, useLocation } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 
 interface NavLinkProps {
   href: string;
@@ -20,6 +21,82 @@ interface NavLinkProps {
   isScrolled?: boolean;
   onClick?: () => void;
 }
+
+const SubMenu: FC<{ item: DropdownItem }> = ({ item }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const { pathname } = useLocation();
+
+  if (!item.children) {
+    return (
+      <Link
+        to={item.href}
+        className={cn(
+          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground ",
+          pathname === item.href ? "bg-accent text-accent-foreground" : "text-muted-foreground"
+        )}
+      >
+        <div className="text-sm font-medium">{item.label}</div>
+        {item.description && (
+          <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+            {item.description}
+          </p>
+        )}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      className="relative group "
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        className={cn(
+          "flex items-center justify-between rounded-md p-3 cursor-pointer transition-colors",
+          isHovered
+            ? "bg-accent text-accent-foreground"
+            : "text-muted-foreground hover:bg-accent/50"
+        )}
+      >
+        <div>
+          <div className="text-sm font-medium">{item.label}</div>
+          {item.description && (
+            <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+              {item.description}
+            </p>
+          )}
+        </div>
+      </div>
+
+      {isHovered && (
+        <div className="absolute left-full top-0 w-[200px] pl-2 ">
+          <div className="bg-card rounded-md shadow-md border border-border p-2">
+            {item.children.map((child, index) => (
+              <Link
+                key={index}
+                to={child.href}
+                className={cn(
+                  "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                  pathname === child.href
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground"
+                )}
+              >
+                <div className="text-sm font-medium">{child.label}</div>
+                {child.description && (
+                  <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                    {child.description}
+                  </p>
+                )}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const NavLink: FC<NavLinkProps> = ({
   href,
@@ -36,7 +113,6 @@ const NavLink: FC<NavLinkProps> = ({
 
   console.log(isOpen);
 
-  // If this link has a dropdown, render it with NavigationMenu
   if (hasDropdown) {
     return (
       <NavigationMenu>
@@ -71,8 +147,7 @@ const NavLink: FC<NavLinkProps> = ({
               onMouseEnter={() => setIsOpen(true)}
               onMouseLeave={() => setIsOpen(false)}
             >
-              <ul className="grid w-[200px] gap-1 p-2">
-
+              {/* <ul className="grid w-[200px] gap-1 p-2">
                 {dropdownItems.map((item, index) => (
                   <li key={index}>
                     <NavigationMenuLink asChild>
@@ -94,6 +169,13 @@ const NavLink: FC<NavLinkProps> = ({
                         )}
                       </Link>
                     </NavigationMenuLink>
+                  </li>
+                ))}
+              </ul> */}
+              <ul className="grid w-[200px] gap-1 p-2">
+                {dropdownItems.map((item, index) => (
+                  <li key={index}>
+                    <SubMenu item={item} />
                   </li>
                 ))}
               </ul>
