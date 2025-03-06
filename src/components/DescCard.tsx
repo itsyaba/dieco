@@ -8,7 +8,7 @@ type Props = {
   backgroundImage?: string;
   breadcrumb?: string;
 };
-const DescCard = ({ title, backgroundImage = riceImg, breadcrumb }: Props) => {
+const DescCard = ({ title, backgroundImage = riceImg }: Props) => {
   return (
     <div
       className="relative w-full h-[50vh] flex items-center justify-center bg-cover bg-center"
