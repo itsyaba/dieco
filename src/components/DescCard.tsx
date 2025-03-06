@@ -3,11 +3,11 @@ import SplitText from "./ui/SplitText/SplitText";
 import { Link } from "react-router-dom";
 import riceImg from "@/assets/rice.jpg";
 
-type Props =  {
-    title: string ;
-    backgroundImage?: string;
-    breadcrumb: string
-}
+type Props = {
+  title: string;
+  backgroundImage?: string;
+  breadcrumb?: string;
+};
 const DescCard = ({ title, backgroundImage = riceImg, breadcrumb }: Props) => {
   return (
     <div
@@ -38,10 +38,13 @@ const DescCard = ({ title, backgroundImage = riceImg, breadcrumb }: Props) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <Link to={`/#`} className="text-greenish cursor-pointer">
+          <Link to={`/#`} className="text-greenish cursor-pointer mr-3">
             Home
           </Link>{" "}
-          / {breadcrumb}
+          /
+          <Link to={`/donate`} className="ml-3 text-greenish cursor-pointer">
+            Donate
+          </Link>{" "}
         </motion.h2>
       </div>
     </div>
