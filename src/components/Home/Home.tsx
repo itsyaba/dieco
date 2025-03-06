@@ -8,7 +8,7 @@ import Img from "@/assets/imggg.jpg";
 import JoinCommunity from "./JoinCommunity";
 import FAQSection from "./Faq";
 import { TapeSection } from "./Tape";
-// import PartnersPage from "./Partners";
+import PartnersPage from "./Partners";
 
 export default function Home() {
   return (
@@ -34,7 +34,7 @@ export default function Home() {
         /> */}
       <JoinCommunity />
       <TapeSection />
-      {/* <PartnersPage /> */}
+      <PartnersPage />
       {/* <BlogSection /> */}
       <FAQSection />
     </div>

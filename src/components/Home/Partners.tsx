@@ -2,22 +2,20 @@ import { useRef, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { Users2Icon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import PartnerOne from "@/assets/scroll-150x150.png";
-import PartnerTwo from "@/assets/performing-150x150.png";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 
 const partners = [
   {
-    name: "The Gentlemen's League",
-    image: PartnerOne,
-    description:
-      "Dedicated to educating, empowering, and enriching the community through mentorship and leadership development.",
+    name: "Memsbodycream",
+    href: "https://www.memsbodycream.com/ ",
   },
   {
-    name: "Whitewater Middle School",
-    image: PartnerTwo,
-    description:
-      "Fostering excellence in education and empowering students to achieve their full potential every day.",
+    name: "HUHT Orphans",
+    href: "https://www.huhtorphans.com",
+  },
+  {
+    name: "Med Share",
+    href: "https://www.medshare.org/",
   },
   // Add more partners here
 ];
@@ -57,7 +55,7 @@ export default function PartnersPage() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="mt-6 text-4xl font-bold tracking-tight text-greenish sm:text-5xl md:text-6xl uppercase"
           >
-            Join us to change lives
+            Our Valued Partners
           </motion.h1>
           {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -72,10 +70,10 @@ export default function PartnersPage() {
       </section>
 
       {/* Partners Infinite Scroll */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Valued Partners</h2>
-          <InfiniteMovingCards items={partners} direction="right" speed="slow" />
+      <section className="">
+        <div className=" mx-auto px-4">
+          {/* <h2 className="text-3xl font-bold text-center mb-12">Our Valued Partners</h2> */}
+          <InfiniteMovingCards items={partners} direction="right" speed="normal" />
         </div>
       </section>
 
@@ -88,12 +86,12 @@ export default function PartnersPage() {
           hidden: { opacity: 0, y: 50 },
           visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
         }}
-        className="container mx-auto px-4 py-20"
+        className="container mx-auto px-4 py-10"
       >
-        <Card className="bg-gradient-to-r from-greenish to-greenish/60 text-white overflow-hidden">
+        <Card className="bg-gradient-to-r from-greenish to-greenish/60 border-none  text-white overflow-hidden">
           <CardContent className="p-8 text-center">
             <motion.div
-              initial={{ scale: 0 }}
+              initial={{ scale: -1 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.5 }}
             >
@@ -117,10 +115,10 @@ export default function PartnersPage() {
               achieve more.
             </motion.p>
             <motion.a
-              href="#contact"
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-6 inline-block rounded-full bg-white px-8 py-3 text-sm font-medium text-blue-600 transition-colors hover:bg-blue-50"
+              className="mt-6 inline-block rounded-full bg-white px-8 py-3 text-sm font-medium text-orange-600 transition-colors hover:bg-blue-50"
             >
               Get in Touch
             </motion.a>
