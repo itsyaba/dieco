@@ -5,7 +5,6 @@ import { Home, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "@/assets/dideco-logo.png";
 import { Newsletter } from "./Newsletter";
-import { navLinks } from "@/Navbar/navData";
 
 export function Footer() {
   const controls = useAnimation();
@@ -55,9 +54,9 @@ export function Footer() {
     >
       <Newsletter />
       <div className="container mx-auto px-4 md:px-6 pt-6">
-        <div className="grid gap-12 md:grid-cols-3 mb-6">
+        <div className="flex items-start justify-between flex-col md:flex-row gap-12  mb-6">
           {/* Column 1 - Logo and Info */}
-          <motion.div className="space-y-6" variants={columnVariants}>
+          <motion.div className="space-y-6 md:w-2/4 " variants={columnVariants}>
             <Link to="/#" className="block w-32">
               <img src={Logo} alt="DIDECO Logo" width={128} height={128} className="rounded-lg" />
             </Link>
@@ -83,11 +82,11 @@ export function Footer() {
           </motion.div>
 
           {/* Column 2 - DIDECO Links */}
-          <motion.div className="space-y-6" variants={columnVariants}>
+          <motion.div className="space-y-6  md:w-2/4" variants={columnVariants}>
             <h3 className="text-lg font-semibold after:content-[''] after:block after:w-12 after:h-1 after:bg-green-500 after:mt-2">
               DIDECO
             </h3>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-3 gap-3">
               {[
                 "History",
                 "DIDECO Branches",
@@ -111,34 +110,11 @@ export function Footer() {
               ))}
             </ul>
           </motion.div>
-
-          {/* Quick Links Section */}
-          <motion.div className="space-y-6" variants={columnVariants}>
-            <h3 className="text-lg font-semibold after:content-[''] after:block after:w-12 after:h-1 after:bg-green-500 after:mt-2">
-              QUICK LINKS
-            </h3>
-            <ul className="space-y-3">
-              {navLinks.map((item) => (
-                <motion.li
-                  key={item.href}
-                  whileHover={{ y: -2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <Link
-                    to={item.href}
-                    className="text-gray-400 hover:text-green-500 text-sm transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
         </div>
 
         {/* Copyright */}
         <motion.div
-          className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm"
+          className="border-t border-gray-800 mt-3 pt-8 text-center text-gray-400 text-sm"
           variants={columnVariants}
         >
           © Copyright 2025 |{" "}

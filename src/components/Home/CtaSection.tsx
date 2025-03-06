@@ -1,11 +1,5 @@
-
 import { useState, useEffect, useRef } from "react";
-import {
-  motion,
-  useInView,
-  useAnimation,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, useInView, useAnimation, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
 interface CTAProps {
@@ -16,7 +10,6 @@ interface CTAProps {
   imageSrc: string;
   imageAlt: string;
   accentColor?: string;
-  darkMode?: boolean;
 }
 
 export default function AnimatedCTA({
@@ -27,7 +20,6 @@ export default function AnimatedCTA({
   imageSrc = "/placeholder.svg?height=600&width=800",
   imageAlt = "People working together in a community project",
   accentColor = "#00d261",
-  darkMode = false,
 }: CTAProps) {
   const controls = useAnimation();
   const ref = useRef(null);
@@ -120,19 +112,14 @@ export default function AnimatedCTA({
   return (
     <motion.div
       ref={ref}
-      className={`w-full overflow-hidden ${
-        darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-      }`}
+      className={`w-full overflow-hidden  my-8 text-darkish mb-0 bg-gradient-to-b from-orange-100 to-orange-600/60`}
       initial="hidden"
       animate={controls}
       variants={containerVariants}
     >
       <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <motion.div
-            className="relative overflow-hidden rounded-lg"
-            variants={imageVariants}
-          >
+          <motion.div className="relative overflow-hidden rounded-lg" variants={imageVariants}>
             <motion.div
               className="absolute inset-0 bg-white opacity-0 z-10"
               variants={shimmerVariants}
@@ -153,9 +140,7 @@ export default function AnimatedCTA({
                 style={{ backgroundColor: accentColor, width: "60px" }}
                 variants={accentLineVariants}
               />
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                {title}
-              </h2>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">{title}</h2>
             </motion.div>
 
             <motion.p

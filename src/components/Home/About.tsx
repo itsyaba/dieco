@@ -24,8 +24,8 @@ empowering our people, and fostering unity across continents."
               About DIDECO
             </h2>
             <p className="mt-4 text-left  text-base/6 text-neutral-200">
-              Learn about our commitment to sustainable development, cultural
-              preservation, and community empowerment.
+              Learn about our commitment to sustainable development, cultural preservation, and
+              community empowerment.
             </p>
             <Link
               to="/about"
@@ -46,9 +46,8 @@ empowering our people, and fostering unity across continents."
             Our Heritage
           </h2>
           <p className="mt-4 max-w-[32rem] text-left  text-base/6 text-neutral-200">
-            From the language we speak to the festivals we celebrate, our
-            heritage is a source of pride and inspiration. Learn about the
-            customs, rituals, and values that define us
+            From the language we speak to the festivals we celebrate, our heritage is a source of
+            pride and inspiration. Learn about the customs, rituals, and values that define us
           </p>
           <Link
             to="/about"
@@ -63,9 +62,8 @@ empowering our people, and fostering unity across continents."
               Our History
             </h2>
             <p className="mt-4 max-w-[40rem] text-left  text-base/6 text-neutral-200">
-              Explore our rich history, from the early migrations of our
-              ancestors to the founding of our organization, and the milestones
-              that have shaped our journey.
+              Explore our rich history, from the early migrations of our ancestors to the founding
+              of our organization, and the milestones that have shaped our journey.
             </p>
             <Link
               to="/history"
