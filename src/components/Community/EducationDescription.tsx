@@ -1,19 +1,19 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { BookOpen, GraduationCap, Building, Languages, BookText, Award } from 'lucide-react';
-import JoinCommunity from '../Home/JoinCommunity';
-import DescCard from '../DescCard';
-import Edu from "@/assets/edu.jpg"
-
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { BookOpen, GraduationCap, Building, Languages, BookText, Award } from "lucide-react";
+import JoinCommunity from "../Home/JoinCommunity";
+import DescCard from "../DescCard";
+import Edu from "@/assets/edu.jpg";
+import img from "@/assets/news-15.jpg";
 // Custom animated section component
-const AnimatedSection = ({ 
-  children, 
-  className = "", 
-  delay = 0 
-}: { 
-  children: React.ReactNode; 
-  className?: string; 
+const AnimatedSection = ({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
   delay?: number;
 }) => {
   const [ref, inView] = useInView({
@@ -35,20 +35,20 @@ const AnimatedSection = ({
 };
 
 // Feature card component
-export const FeatureCard = ({ 
-  icon: Icon, 
-  title, 
-  description, 
-  delay = 0 
-}: { 
-  icon: React.ElementType; 
-  title: string; 
-  description: string; 
+export const FeatureCard = ({
+  icon: Icon,
+  title,
+  description,
+  delay = 0,
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
   delay?: number;
 }) => {
   return (
-    <AnimatedSection 
-      delay={delay} 
+    <AnimatedSection
+      delay={delay}
       className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
     >
       <div className="p-3 bg-green-100 rounded-full mb-4">
@@ -63,22 +63,21 @@ export const FeatureCard = ({
 function EducationDescription() {
   return (
     <div className=" bg-gradient-to-b from-green-50 to-blue-50 mt-40">
-      <DescCard title="Education " breadcrumb="EDUCATION" />
+      <DescCard title="Education " breadcrumb="EDUCATION" backgroundImage={img} />
       <main className=" px-6 py-16">
         <AnimatedSection className="max-w-6xl mx-auto text-center mb-16 container ">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
             Education: The Cornerstone of Progress
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Education is the cornerstone of empowerment and progress within the
-            Dikome Balue community. At DIDECO, we ensure that every individual
-            has access to quality education and opportunities for lifelong
-            learning. Our comprehensive approach addresses various aspects of
-            education to create a holistic impact on the community.
+            Education is the cornerstone of empowerment and progress within the Dikome Balue
+            community. At DIDECO, we ensure that every individual has access to quality education
+            and opportunities for lifelong learning. Our comprehensive approach addresses various
+            aspects of education to create a holistic impact on the community.
           </p>
         </AnimatedSection>
 
-        {/* Original School Image */} 
+        {/* Original School Image */}
         <AnimatedSection className="mb-16 container">
           <div className="relative rounded-xl overflow-hidden shadow-2xl">
             <img
@@ -95,12 +94,10 @@ function EducationDescription() {
         {/* Programs Grid */}
         <section className="mb-16">
           <AnimatedSection className="text-center mb-10 container">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Our Educational Initiatives
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Educational Initiatives</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              DIDECO implements various programs to ensure comprehensive
-              educational development in the Dikome Balue community.
+              DIDECO implements various programs to ensure comprehensive educational development in
+              the Dikome Balue community.
             </p>
           </AnimatedSection>
 
