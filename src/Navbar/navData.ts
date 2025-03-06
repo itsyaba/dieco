@@ -106,7 +106,7 @@ const dropdownItems: Record<string, DropdownItem[]> = {
           description: "The historical evolution of Nganos Ya Mboka.",
         },
         {
-          href: "/about#mission",
+          href: "/about#branches",
           label: "Diedeco Branches",
           description: "The various branches of the Diedeco system.",
         },
