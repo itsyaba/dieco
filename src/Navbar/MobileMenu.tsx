@@ -48,7 +48,7 @@ const SubMenu: FC<SubMenuProps> = ({ item, level = 0, onClose }) => {
                 className="overflow-hidden"
               >
                 <div className="py-1 space-y-1">
-                  {item.children.map((child, idx) => (
+                  {item.children?.map((child, idx) => (
                     <SubMenu key={idx} item={child} level={level + 1} onClose={onClose} />
                   ))}
                 </div>
@@ -72,8 +72,8 @@ const SubMenu: FC<SubMenuProps> = ({ item, level = 0, onClose }) => {
       )}
     </div>
   );
-};
 
+};
 const MobileMenu: FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const { pathname } = useLocation();
 
