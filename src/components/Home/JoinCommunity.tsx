@@ -68,7 +68,7 @@ const JoinCommunity = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        Join our community for donating and be a part of a positive change in the world.
+        Follow us on social media and be part of a growing community making a difference!
       </motion.h2>
 
       <motion.h1

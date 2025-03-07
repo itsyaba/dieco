@@ -1,15 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  History,
-  Gamepad,
-  Home,
-  Users,
-} from "lucide-react";
+import { History, Gamepad, Home, Users } from "lucide-react";
 import JoinCommunity from "../Home/JoinCommunity";
 import DescCard from "../DescCard";
-import BgImg from "@/assets/who_we_are-1.jpeg"
+import BgImg from "@/assets/who_we_are-1.jpeg";
+import img6 from "@/assets/pic1.jpg";
+
 // Custom animated section component
 export const AnimatedSection = ({
   children,
@@ -67,18 +64,17 @@ export const FeatureCard = ({
 function Macoros() {
   return (
     <div className=" bg-gradient-to-b from-green-50 to-blue-50 mt-40">
-      <DescCard title="Macoros " breadcrumb="Macoros" />
+      <DescCard title="Macoros " breadcrumb="Macoros" backgroundImage={img6} />
       <main className=" px-6 py-16">
         <AnimatedSection className="max-w-6xl mx-auto text-center mb-16 container ">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
             A traditional sport of the Dikome Balue community
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Macoros, a traditional sport of the Dikome Balue community, embodies
-            the spirit of camaraderie, athleticism, and cultural pride. Rooted
-            in our rich heritage, Macoros has been passed down through
-            generations, serving as a beloved pastime and a symbol of community
-            unity.
+            Macoros, a traditional sport of the Dikome Balue community, embodies the spirit of
+            camaraderie, athleticism, and cultural pride. Rooted in our rich heritage, Macoros has
+            been passed down through generations, serving as a beloved pastime and a symbol of
+            community unity.
           </p>
         </AnimatedSection>
 

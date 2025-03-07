@@ -7,6 +7,7 @@ import im2 from "@/assets/koki.jpeg";
 import img3 from "@/assets/mbongo-tchobi.jpeg";
 import img4 from "@/assets/miondo.jpeg";
 import img5 from "@/assets/achu.jpeg";
+import img6 from "@/assets/pic4.jpg";
 
 const foods = [
   {
@@ -44,7 +45,7 @@ const foods = [
 export default function TraditionalPage() {
   return (
     <div className="mt-40">
-      <DescCard title="Traditional Dishes" breadcrumb="Traditional Dishes" />
+      <DescCard title="Traditional Dishes" breadcrumb="Traditional Dishes" backgroundImage={img6} />
       <AnimatedSection className="max-w-6xl mx-auto text-center py-14 container  ">
         <h2 className="text-3xl font-bold text-gray-800 mb-6"> Traditional Cuisine</h2>
         <p className="text-lg text-gray-600 leading-relaxed">

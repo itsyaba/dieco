@@ -13,6 +13,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import toast from "react-hot-toast";
 
+
 const TIERS = [
   {
     name: "Platinum",
@@ -22,6 +23,7 @@ const TIERS = [
       "VIP access to events",
       "Recognition in all materials",
     ],
+    color: "#E5E4E2", // Silver
   },
   {
     name: "Gold",
@@ -31,6 +33,7 @@ const TIERS = [
       "Priority access to events",
       "Recognition in major materials",
     ],
+    color: "#FFD700", // Gold
   },
   {
     name: "Silver",
@@ -40,16 +43,18 @@ const TIERS = [
       "Event access",
       "Recognition in select materials",
     ],
+    color: "#C0C0C0", // Light Steel Blue
   },
   {
     name: "Bronze",
     amount: 25000,
     benefits: ["Standard visibility", "Event invitations", "Basic recognition"],
+    color: "#CD7F32", // Bronze
   },
 ];
 
 interface SponsorshipTiersProps {
-  selectedProject: string;
+  selectedProject?: string | null;
 }
 
 export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
@@ -71,6 +76,9 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
     }
   };
 
+  console.log(selectedProject);
+  
+
   const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const amount = parseFloat(e.target.value) || 0;
     setCustomAmount(e.target.value);
@@ -78,28 +86,24 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
     setFinalAmount(amount);
   };
 
-  const handleSubmit = () => {
-    if (finalAmount <= 0) {
-      toast.error("Please select a sponsorship tier or enter a valid amount.");
-      return;
+  const handlePayPalClick = () => {
+    if (!selectedOption) {
+      toast.error("Please select a sponsorship tier or enter a custom amount.");
+      return false;
     }
-
-    toast.success(
-      `Donation confirmed: $${finalAmount.toLocaleString()} for ${
-        selectedProject === "water"
-          ? "Clean Drinking Water"
-          : "Dikome Balue Hospital Rebuild"
-      } project.`
-    );
+    return true;
   };
-  
 
   return (
     <div className="space-y-6">
       <RadioGroup value={selectedOption} onValueChange={handleOptionChange}>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {TIERS.map((tier) => (
-            <Card key={tier.name} className="flex flex-col bg-darkish">
+          {TIERS?.map((tier) => (
+            <Card
+              key={tier.name}
+              className={`flex flex-col border-none shadow-2xl`}
+              style={{ backgroundColor: tier.color, color: "#000" }} // Apply hex color
+            >
               <CardHeader>
                 <CardTitle>${tier.amount.toLocaleString()}</CardTitle>
                 <CardDescription className="text-xl font-bold">
@@ -108,7 +112,7 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
               </CardHeader>
               <CardContent className="flex-1">
                 <ul className="space-y-2">
-                  {tier.benefits.map((benefit) => (
+                  {tier?.benefits?.map((benefit) => (
                     <li key={benefit} className="flex items-center text-sm">
                       <svg
                         className="mr-2 h-4 w-4 text-green-500"
@@ -140,7 +144,7 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
           ))}
         </div>
 
-        <Card className="bg-darkish">
+        <Card className="bg-darkish text-white">
           <CardHeader>
             <CardTitle>Custom Amount</CardTitle>
             <CardDescription>Enter a custom donation amount</CardDescription>
@@ -162,55 +166,56 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
           </CardContent>
         </Card>
       </RadioGroup>
-        <PayPalScriptProvider options={{ clientId }}>
-          {/* <Button
-          className="w-full bg-greenish py-4 hover:bg-greenish/70 text-white text-xl"
-          size="lg"
-        >
-          Confirm Donation
-        </Button> */}
 
-          <PayPalButtons
-            onClick={handleSubmit}
-            style={{
-              layout: "horizontal",
-              color: "gold",
-              shape: "pill",
-              label: "paypal",
-              tagline: true,
-              height: 55,
-            }}
-            createOrder={(_data, actions) => {
-              return actions.order.create({
-                intent: "CAPTURE",
-                purchase_units: [
-                  {
-                    amount: {
-                      currency_code: "USD",
-                      value: finalAmount.toFixed(2),
-                    },
+      <PayPalScriptProvider options={{ clientId }}>
+        <PayPalButtons
+          onClick={(data, actions) => {
+            console.log(data);
+
+            if (!handlePayPalClick()) {
+              return actions.reject();
+            }
+            return actions.resolve();
+          }}
+          style={{
+            layout: "horizontal",
+            color: "gold",
+            shape: "pill",
+            label: "paypal",
+            tagline: true,
+            height: 55,
+          }}
+          createOrder={(_data, actions) => {
+            return actions.order.create({
+              intent: "CAPTURE",
+              purchase_units: [
+                {
+                  amount: {
+                    currency_code: "USD",
+                    value: finalAmount.toFixed(2),
                   },
-                ],
-              });
-            }}
-            onApprove={async (_data, actions) => {
-              if (!actions.order) {
-                toast.error("Order capture failed. Please try again.");
-                return;
-              }
-              return actions.order.capture().then((details) => {
-                const payerName =
-                  details.purchase_units?.[0]?.shipping?.name?.full_name ||
-                  "Donor";
-                toast.success(
-                  `Thank you, ${payerName}! You donated $${finalAmount.toFixed(
-                    2
-                  )}`
-                );
-              });
-            }}
-          />
-        </PayPalScriptProvider>
+                },
+              ],
+            });
+          }}
+          onApprove={async (_data, actions) => {
+            if (!actions.order) {
+              toast.error("Order capture failed. Please try again.");
+              return;
+            }
+            return actions.order.capture().then((details) => {
+              const payerName =
+                details.purchase_units?.[0]?.shipping?.name?.full_name ||
+                "Donor";
+              toast.success(
+                `Thank you, ${payerName}! You donated $${finalAmount.toFixed(
+                  2
+                )}`
+              );
+            });
+          }}
+        />
+      </PayPalScriptProvider>
     </div>
   );
 }

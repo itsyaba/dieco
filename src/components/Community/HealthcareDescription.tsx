@@ -1,15 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  GraduationCap,
-  Building,
-  BookText,
-  HeartPulse,
-} from "lucide-react";
+import { GraduationCap, Building, BookText, HeartPulse } from "lucide-react";
 import JoinCommunity from "../Home/JoinCommunity";
 import DescCard from "../DescCard";
 import Edu from "@/assets/edu.jpg";
+import img6 from "@/assets/1-1.jpg";
 
 // Custom animated section component
 const AnimatedSection = ({
@@ -68,18 +64,16 @@ export const FeatureCard = ({
 function HealthcareDescription() {
   return (
     <div className=" bg-gradient-to-b from-green-50 to-blue-50 mt-40">
-      <DescCard title="Healthcare " breadcrumb="Healthcare" />
+      <DescCard title="Healthcare " breadcrumb="Healthcare" backgroundImage={img6} />
       <main className=" px-6 py-16">
         <AnimatedSection className="max-w-6xl mx-auto text-center mb-16 container ">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
-            Access to quality healthcare is essential for the well-being and
-            prosperity
+            Access to quality healthcare is essential for the well-being and prosperity
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Access to quality healthcare is essential for the well-being and
-            prosperity of the Dikome Balue community. DIDECO is dedicated to
-            improving healthcare outcomes and ensuring that every individual has
-            access to essential medical services.
+            Access to quality healthcare is essential for the well-being and prosperity of the
+            Dikome Balue community. DIDECO is dedicated to improving healthcare outcomes and
+            ensuring that every individual has access to essential medical services.
           </p>
         </AnimatedSection>
 
@@ -100,12 +94,10 @@ function HealthcareDescription() {
         {/* Programs Grid */}
         <section className="mb-16">
           <AnimatedSection className="text-center mb-10 container">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Our Healthcare Initiatives
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Healthcare Initiatives</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              DIDECO implements various programs to ensure comprehensive
-              Healthcare development in the Dikome Balue community.
+              DIDECO implements various programs to ensure comprehensive Healthcare development in
+              the Dikome Balue community.
             </p>
           </AnimatedSection>
 

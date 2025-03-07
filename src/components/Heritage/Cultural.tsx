@@ -5,12 +5,14 @@ import img2 from "@/assets/dance-150x150.png";
 import img3 from "@/assets/performing-150x150.png";
 import img4 from "@/assets/speech-bubble-150x150.png";
 import img5 from "@/assets/scroll-150x150.png";
+import img6 from "@/assets/Mount.jpeg";
+
 import { AnimatedSection } from "./Macoros";
 
 export default function CulturalPage() {
   return (
     <div className="mt-40 bg-gray-100 ">
-      <DescCard title="Cultural Heritage" breadcrumb="Cultural Heritage" />
+      <DescCard title="Cultural Heritage" breadcrumb="Cultural Heritage" backgroundImage={img6} />
       <div className="max-w-7xl mx-auto min-h-screen py-12 px-4 sm:px-6 lg:px-8 ">
         <AnimatedSection className="max-w-6xl mx-auto text-center mb-16 container ">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">

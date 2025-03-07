@@ -10,7 +10,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { SponsorshipTiers } from "./SponsershipTiers";
-import waterImg from "@/assets/1-1.jpg"
+import waterImg from "@/assets/1-1.jpg";
 import hospitalImg from "@/assets/edu.jpg";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
@@ -25,7 +25,7 @@ const PROJECTS = {
     title: "Dikome Balue Hospital Rebuild",
     description:
       "The rebuilding of Dikome Balue hospital is crucial for providing essential healthcare services to our community. This project aims to create a modern medical facility equipped with necessary resources to serve our growing population.",
-    image:hospitalImg,
+    image: hospitalImg,
   },
 };
 
@@ -63,12 +63,13 @@ export function ProjectSelector() {
                 </div>
               </CardHeader>
               <CardContent>
- 
                 <CardDescription>{project.description}</CardDescription>
               </CardContent>
               <CardFooter>
                 <Link to="/projects">
-                <Button className="bg-greenish text-white hover:bg-greenish/70 " size="lg">Read More</Button>
+                  <Button className="bg-greenish text-white hover:bg-greenish/70 " size="lg">
+                    Read More
+                  </Button>
                 </Link>
               </CardFooter>
             </Card>
@@ -76,14 +77,12 @@ export function ProjectSelector() {
         </div>
       </div>
 
-      {selectedProject && (
-        <div className="space-y-4">
-          <h3 className="text-xl font-bold text-center text-darkish">
-            Choose Your Sponsorship Level
-          </h3>
-          <SponsorshipTiers selectedProject={selectedProject} />
-        </div>
-      )}
+      <div className="space-y-4">
+        <h3 className="text-xl font-bold text-center text-darkish">
+          Choose Your Sponsorship Level
+        </h3>
+        <SponsorshipTiers selectedProject={selectedProject} />
+      </div>
     </div>
   );
 }

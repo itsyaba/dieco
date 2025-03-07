@@ -154,11 +154,19 @@ const dropdownItems: Record<string, DropdownItem[]> = {
     },
     { href: "/donate", label: "Donate", description: "Support our community initiatives" },
   ],
-  // "/gallery": [
-  //   { href: "/gallery/photos", label: "Photo Gallery", description: "Images from our events and projects" },
-  //   { href: "/gallery/videos", label: "Video Gallery", description: "Videos showcasing our work" },
-  //   { href: "/gallery/press", label: "Press Coverage", description: "Media coverage of our organization" },
-  // ],
+  "/gallery": [
+    {
+      href: "/gallery",
+      label: "AGM",
+      description:
+        "AGM  is a significant event in the calendar of DIDECO, bringing together members, stakeholders, and community leaders",
+    },
+    {
+      href: "/gallery",
+      label: "Mabunu",
+      description: "Mabuntu gallery captures the essence and energy of this cultural festival.",
+    },
+  ],
   "/projects": [
     {
       href: "/projects#water-project",
