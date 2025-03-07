@@ -7,7 +7,7 @@ import CountUp from "./animated-counter";
 import { Link } from "react-router-dom";
 
 // Import the FloatingPaths component from the background-paths file
-function FloatingPaths({ position }: { position: number }) {
+export function FloatingPaths({ position }: { position: number }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
     id: i,
     d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${

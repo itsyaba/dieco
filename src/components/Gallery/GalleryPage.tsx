@@ -370,8 +370,8 @@ const images = [
   return (
     <div className="mt-40">
       <DescCard title="Gallery" breadcrumb="gallery" backgroundImage={img0} />
-      <div className=" mx-auto bg-green-500 h-[50vh]">
-        <div style={{ height: '350px', position: 'relative' }}>
+      <div className=" mx-auto bg-gradient-to-r from-orange-500 to-white h-[70vh] flex items-center justify-center ">
+        <div style={{ height: '350px', position: 'relative' }} className="w-full">
         <CircularGallery items={images} bend={4} textColor="#ffffff" borderRadius={0.05} />
       </div>
       </div>
