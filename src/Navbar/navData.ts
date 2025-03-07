@@ -38,11 +38,11 @@ export const navLinks: NavLink[] = [
   //   label: "OUR HERITAGE",
   //   hasDropdown: true,
   // },
-  // {
-  //   href: "/gallery",
-  //   label: "GALLERY",
-  //   hasDropdown: true,
-  // },
+  {
+    href: "/gallery",
+    label: "GALLERY",
+    hasDropdown: true,
+  },
   {
     href: "/projects",
     label: "PROJECTS",

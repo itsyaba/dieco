@@ -15,6 +15,7 @@ import DonatePage from "./components/Donate/Donate";
 import OutreachPage from "./components/Outreach/Outreach";
 import ContactSection from "./components/Contact/contact";
 import TraditionalPage from "./components/Heritage/Traditional";
+import GalleryPage from "./components/Gallery/GalleryPage";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/heritage/macoros" element={<Macoros />} />
 
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/outreach" element={<OutreachPage />} />
         <Route path="/donate" element={<DonatePage />} />
         <Route path="/contact" element={<ContactSection />} />
