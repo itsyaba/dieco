@@ -26,6 +26,7 @@
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.475.0",
     "meshline": "^3.3.1",
+    "ogl": "^1.0.11",
     "react": "^19.0.0",
     "react-colorful": "^5.6.1",
     "react-dom": "^19.0.0",
