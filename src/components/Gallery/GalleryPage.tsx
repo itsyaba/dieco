@@ -1,6 +1,6 @@
 import DescCard from "../DescCard";
 import img0 from "@/assets/Mount.jpeg";
-import img1 from "@/assets/old/thumb_1456765353NATIONAL_PRESIDENT.jpg.jpg";
+// import img1 from "@/assets/old/thumb_1456765353NATIONAL_PRESIDENT.jpg.jpg";
 import img2 from "@/assets/old/thumb_1332792758SAM_1292.JPG.jpg";
 import img3 from "@/assets/old/thumb_1332792665SAM_1267.JPG.jpg";
 import img4 from "@/assets/old/thumb_1274624035PIC_1585.JPG.jpg";
@@ -74,306 +74,305 @@ import img73 from "@/assets/old/thumb_1262770131Image019.jpg.jpg";
 import CircularGallery from "../ui/CircularGallery";
 
 const GalleryPage = () => {
+  const images = [
+    // {
+    //   image: img1,
+    //   text: "Image 1",
+    // },
+    {
+      image: img2,
+      text: "Image 2",
+    },
+    {
+      image: img3,
+      text: "Image 3",
+    },
+    {
+      image: img4,
+      text: "Image 4",
+    },
+    {
+      image: img5,
+      text: "Image 5",
+    },
+    {
+      image: img16,
+      text: "Image 6",
+    },
+    {
+      image: img7,
+      text: "Image 7",
+    },
+    {
+      image: img8,
+      text: "Image 8",
+    },
+    {
+      image: img9,
+      text: "Image 9",
+    },
+    {
+      image: img10,
+      text: "Image 10",
+    },
+    {
+      image: img11,
+      text: "Image 11",
+    },
+    {
+      image: img12,
+      text: "Image 12",
+    },
+    {
+      image: img13,
+      text: "Image 13",
+    },
+    {
+      image: img14,
+      text: "Image 14",
+    },
+    {
+      image: img15,
+      text: "Image 15",
+    },
+    {
+      image: img16,
+      text: "Image 16",
+    },
+    {
+      image: img17,
+      text: "Image 17",
+    },
+    {
+      image: img18,
+      text: "Image 18",
+    },
+    {
+      image: img19,
+      text: "Image 19",
+    },
+    {
+      image: img20,
+      text: "Image 20",
+    },
+    {
+      image: img21,
+      text: "Image 21",
+    },
+    {
+      image: img22,
+      text: "Image 22",
+    },
+    {
+      image: img23,
+      text: "Image 23",
+    },
+    {
+      image: img24,
+      text: "Image 24",
+    },
+    {
+      image: img25,
+      text: "Image 25",
+    },
+    {
+      image: img26,
+      text: "Image 26",
+    },
+    {
+      image: img27,
+      text: "Image 27",
+    },
+    {
+      image: img28,
+      text: "Image 28",
+    },
+    {
+      image: img29,
+      text: "Image 29",
+    },
+    {
+      image: img30,
+      text: "Image 30",
+    },
+    {
+      image: img31,
+      text: "Image 31",
+    },
+    {
+      image: img32,
+      text: "Image 32",
+    },
+    {
+      image: img33,
+      text: "Image 33",
+    },
+    {
+      image: img34,
+      text: "Image 34",
+    },
+    {
+      image: img35,
+      text: "Image 35",
+    },
+    {
+      image: img36,
+      text: "Image 36",
+    },
+    {
+      image: img37,
+      text: "Image 37",
+    },
+    {
+      image: img38,
+      text: "Image 38",
+    },
+    {
+      image: img39,
+      text: "Image 39",
+    },
+    {
+      image: img40,
+      text: "Image 40",
+    },
 
-const images = [
-  {
-    image: img1,
-    text: "Image 1",
-  },
-  {
-    image: img2,
-    text: "Image 2",
-  },
-  {
-    image: img3,
-    text: "Image 3",
-  },
-  {
-    image: img4,
-    text: "Image 4",
-  },
-  {
-    image: img5,
-    text: "Image 5",
-  },
-  {
-    image: img16,
-    text: "Image 6",
-  },
-  {
-    image: img7,
-    text: "Image 7",
-  },
-  {
-    image: img8,
-    text: "Image 8",
-  },
-  {
-    image: img9,
-    text: "Image 9",
-  },
-  {
-    image: img10,
-    text: "Image 10",
-  },
-  {
-    image: img11,
-    text: "Image 11",
-  },
-  {
-    image: img12,
-    text: "Image 12",
-  },
-  {
-    image: img13,
-    text: "Image 13",
-  },
-  {
-    image: img14,
-    text: "Image 14",
-  },
-  {
-    image: img15,
-    text: "Image 15",
-  },
-  {
-    image: img16,
-    text: "Image 16",
-  },
-  {
-    image: img17,
-    text: "Image 17",
-  },
-  {
-    image: img18,
-    text: "Image 18",
-  },
-  {
-    image: img19,
-    text: "Image 19",
-  },
-  {
-    image: img20,
-    text: "Image 20",
-  },
-  {
-    image: img21,
-    text: "Image 21",
-  },
-  {
-    image: img22,
-    text: "Image 22",
-  },
-  {
-    image: img23,
-    text: "Image 23",
-  },
-  {
-    image: img24,
-    text: "Image 24",
-  },
-  {
-    image: img25,
-    text: "Image 25",
-  },
-  {
-    image: img26,
-    text: "Image 26",
-  },
-  {
-    image: img27,
-    text: "Image 27",
-  },
-  {
-    image: img28,
-    text: "Image 28",
-  },
-  {
-    image: img29,
-    text: "Image 29",
-  },
-  {
-    image: img30,
-    text: "Image 30",
-  },
-  {
-    image: img31,
-    text: "Image 31",
-  },
-  {
-    image: img32,
-    text: "Image 32",
-  },
-  {
-    image: img33,
-    text: "Image 33",
-  },
-  {
-    image: img34,
-    text: "Image 34",
-  },
-  {
-    image: img35,
-    text: "Image 35",
-  },
-  {
-    image: img36,
-    text: "Image 36",
-  },
-  {
-    image: img37,
-    text: "Image 37",
-  },
-  {
-    image: img38,
-    text: "Image 38",
-  },
-  {
-    image: img39,
-    text: "Image 39",
-  },
-  {
-    image: img40,
-    text: "Image 40",
-  },
-
-  {
-    image: img42,
-    text: "Image 42",
-  },
-  {
-    image: img43,
-    text: "Image 43",
-  },
-  {
-    image: img44,
-    text: "Image 44",
-  },
-  {
-    image: img45,
-    text: "Image 45",
-  },
-  {
-    image: img46,
-    text: "Image 46",
-  },
-  {
-    image: img47,
-    text: "Image 47",
-  },
-  {
-    image: img48,
-    text: "Image 48",
-  },
-  {
-    image: img49,
-    text: "Image 49",
-  },
-  {
-    image: img50,
-    text: "Image 50",
-  },
-  {
-    image: img51,
-    text: "Image 51",
-  },
-  {
-    image: img52,
-    text: "Image 52",
-  },
-  {
-    image: img53,
-    text: "Image 53",
-  },
-  {
-    image: img54,
-    text: "Image 54",
-  },
-  {
-    image: img55,
-    text: "Image 55",
-  },
-  {
-    image: img56,
-    text: "Image 56",
-  },
-  {
-    image: img57,
-    text: "Image 57",
-  },
-  {
-    image: img58,
-    text: "Image 58",
-  },
-  {
-    image: img59,
-    text: "Image 59",
-  },
-  {
-    image: img60,
-    text: "Image 60",
-  },
-  {
-    image: img61,
-    text: "Image 61",
-  },
-  {
-    image: img62,
-    text: "Image 62",
-  },
-  {
-    image: img63,
-    text: "Image 63",
-  },
-  {
-    image: img64,
-    text: "Image 64",
-  },
-  {
-    image: img65,
-    text: "Image 65",
-  },
-  {
-    image: img66,
-    text: "Image 66",
-  },
-  {
-    image: img67,
-    text: "Image 67",
-  },
-  {
-    image: img68,
-    text: "Image 68",
-  },
-  {
-    image: img69,
-    text: "Image 69",
-  },
-  {
-    image: img70,
-    text: "Image 70",
-  },
-  {
-    image: img71,
-    text: "Image 71",
-  },
-  {
-    image: img72,
-    text: "Image 72",
-  },
-  {
-    image: img73,
-    text: "Image 73",
-  },
-];
+    {
+      image: img42,
+      text: "Image 42",
+    },
+    {
+      image: img43,
+      text: "Image 43",
+    },
+    {
+      image: img44,
+      text: "Image 44",
+    },
+    {
+      image: img45,
+      text: "Image 45",
+    },
+    {
+      image: img46,
+      text: "Image 46",
+    },
+    {
+      image: img47,
+      text: "Image 47",
+    },
+    {
+      image: img48,
+      text: "Image 48",
+    },
+    {
+      image: img49,
+      text: "Image 49",
+    },
+    {
+      image: img50,
+      text: "Image 50",
+    },
+    {
+      image: img51,
+      text: "Image 51",
+    },
+    {
+      image: img52,
+      text: "Image 52",
+    },
+    {
+      image: img53,
+      text: "Image 53",
+    },
+    {
+      image: img54,
+      text: "Image 54",
+    },
+    {
+      image: img55,
+      text: "Image 55",
+    },
+    {
+      image: img56,
+      text: "Image 56",
+    },
+    {
+      image: img57,
+      text: "Image 57",
+    },
+    {
+      image: img58,
+      text: "Image 58",
+    },
+    {
+      image: img59,
+      text: "Image 59",
+    },
+    {
+      image: img60,
+      text: "Image 60",
+    },
+    {
+      image: img61,
+      text: "Image 61",
+    },
+    {
+      image: img62,
+      text: "Image 62",
+    },
+    {
+      image: img63,
+      text: "Image 63",
+    },
+    {
+      image: img64,
+      text: "Image 64",
+    },
+    {
+      image: img65,
+      text: "Image 65",
+    },
+    {
+      image: img66,
+      text: "Image 66",
+    },
+    {
+      image: img67,
+      text: "Image 67",
+    },
+    {
+      image: img68,
+      text: "Image 68",
+    },
+    {
+      image: img69,
+      text: "Image 69",
+    },
+    {
+      image: img70,
+      text: "Image 70",
+    },
+    {
+      image: img71,
+      text: "Image 71",
+    },
+    {
+      image: img72,
+      text: "Image 72",
+    },
+    {
+      image: img73,
+      text: "Image 73",
+    },
+  ];
 
   return (
     <div className="mt-40">
       <DescCard title="Gallery" breadcrumb="gallery" backgroundImage={img0} />
-      <div className=" mx-auto bg-gradient-to-r from-orange-500 to-white h-[70vh] flex items-center justify-center ">
-        <div style={{ height: '350px', position: 'relative' }} className="w-full">
-        <CircularGallery items={images} bend={4} textColor="#ffffff" borderRadius={0.05} />
-      </div>
+      <div className=" mx-auto bg-greenish h-[70vh] flex items-center justify-center ">
+        <div style={{ height: "350px", position: "relative" }} className="w-full">
+          <CircularGallery items={images} bend={4} textColor="#ffffff" borderRadius={0.05} />
+        </div>
       </div>
     </div>
   );
