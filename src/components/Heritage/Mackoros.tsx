@@ -4,10 +4,9 @@ import { useInView } from "react-intersection-observer";
 import { History, Gamepad, Home, Users } from "lucide-react";
 import JoinCommunity from "../Home/JoinCommunity";
 import DescCard from "../DescCard";
-import BgImg from "@/assets/who_we_are-1.jpeg";
+import BgImg from "@/assets/church.jpg";
 import img6 from "@/assets/pic1.jpg";
 
-// Custom animated section component
 export const AnimatedSection = ({
   children,
   className = "",
@@ -61,20 +60,19 @@ export const FeatureCard = ({
   );
 };
 
-function Macoros() {
+function Makoros() {
   return (
     <div className=" bg-gradient-to-b from-green-50 to-blue-50 mt-40">
-      <DescCard title="Macoros " breadcrumb="Macoros" backgroundImage={img6} />
+      <DescCard title="Makoros " breadcrumb="Makoros" backgroundImage={img6} />
       <main className=" px-6 py-16">
         <AnimatedSection className="max-w-6xl mx-auto text-center mb-16 container ">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
-            A traditional sport of the Dikome Balue community
+            A tradition of the Dikome Balue community
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Macoros, a traditional sport of the Dikome Balue community, embodies the spirit of
-            camaraderie, athleticism, and cultural pride. Rooted in our rich heritage, Macoros has
-            been passed down through generations, serving as a beloved pastime and a symbol of
-            community unity.
+            Makoros, a traditional sport of the Dikome Balue community, embodies the spirit of
+            camaraderie, and cultural pride. Rooted in our rich heritage, Makoros has been passed
+            down through generations, serving as a beloved pastime and a symbol of community unity.
           </p>
         </AnimatedSection>
 
@@ -112,28 +110,28 @@ Preservation Efforts:
             <FeatureCard
               icon={History}
               title="History and Origins"
-              description="Macoros traces its origins back to ancient times, with historical records suggesting that it was played by our ancestors as a form of recreation and competition. Over the years, Macoros has evolved into a cherished tradition, with each match carrying on the legacy of our forebearers."
+              description="Makoros traces its origins back to ancient times, with historical records suggesting that it was played by our ancestors as a form of recreation and competition. Over the years, Makoros has evolved into a cherished tradition, with each match carrying on the legacy of our forebearers."
               delay={0.1}
             />
 
             <FeatureCard
               icon={Gamepad}
               title="Rules and Gameplay"
-              description="Macoros is played on a rectangular field, with two teams competing to score goals by propelling a wooden ball (the 'macoro') into the opposing team's goalpost. Players use sticks to control and maneuver the macoro, showcasing their agility, skill, and teamwork. The game is characterized by fast-paced action and strategic maneuvers, with each match eliciting cheers and excitement from spectators."
+              description="Makoros is played on a rectangular field, with two teams competing to score goals by propelling a wooden ball (the 'macoro') into the opposing team's goalpost. Players use sticks to control and maneuver the macoro, showcasing their agility, skill, and teamwork. The game is characterized by fast-paced action and strategic maneuvers, with each match eliciting cheers and excitement from spectators."
               delay={0.2}
             />
 
             <FeatureCard
               icon={Home}
               title="Cultural Significance"
-              description="The game brings together individuals of all ages and backgrounds, fostering bonds of friendship and camaraderie. Through Macoros, we honor our heritage and celebrate the values of teamwork, sportsmanship, and community spirit."
+              description="The game brings together individuals of all ages and backgrounds, fostering bonds of friendship and camaraderie. Through Makoros, we honor our heritage and celebrate the values of teamwork, sportsmanship, and community spirit."
               delay={0.3}
             />
 
             <FeatureCard
               icon={Users}
               title="Preservation Efforts"
-              description="DIDECO preserves and promotes the tradition of Macoros, organizing tournaments, training sessions, and cultural events to ensure its continued vitality. Through these efforts, we aim to pass down the tradition of Macoros to future generations, keeping alive the legacy of our cultural heritage."
+              description="DIDECO preserves and promotes the tradition of Makoros, organizing tournaments, training sessions, and cultural events to ensure its continued vitality. Through these efforts, we aim to pass down the tradition of Makoros to future generations, keeping alive the legacy of our cultural heritage."
               delay={0.4}
             />
           </div>
@@ -185,4 +183,4 @@ Preservation Efforts:
   );
 }
 
-export default Macoros;
+export default Makoros;

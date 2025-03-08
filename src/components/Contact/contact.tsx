@@ -3,20 +3,14 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { User, Phone, Mail, HelpCircle, PhoneCall } from "lucide-react";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
+import { User, Phone, Mail, HelpCircle } from "lucide-react";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import emailjs from "emailjs-com";
 import DescCard from "../DescCard";
-
+import Img from "@/assets/new/WhatsApp Image 2025-02-13 at 11.09.03_682f21e4.jpg";
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -57,7 +51,7 @@ export default function ContactSection() {
 
   return (
     <div className="mt-40 text-darkish">
-      <DescCard title="Contact us" breadcrumb="Contact US" />
+      <DescCard title="Contact us" breadcrumb="Contact US" backgroundImage={Img} />
       <section className="w-full py-20 overflow-hidden relative " id="contact">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-darkish rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -84,10 +78,7 @@ export default function ContactSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="space-y-6"
-                >
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField
                     control={form.control}
                     name="name"
@@ -186,13 +177,9 @@ export default function ContactSection() {
                   <span className="line"> </span>
                   Contact Info
                 </h3>
-                <div className="flex items-start space-x-3 text-gray-600">
-                  <PhoneCall className="h-5 w-5 mt-1 text-[#F47458]" />
-                  <p> 1800-1234567</p>
-                </div>
                 <div className="flex items-start space-x-3 text-gray-600 mt-2">
                   <Mail className="h-5 w-5 mt-1 text-[#F47458]" />
-                  <p>Email: info@dideconorthamerica.org</p>
+                  <p>Email: DIDECONORTHAMERICA@GMAIL.COM</p>
                 </div>
               </div>
             </motion.div>

@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 const partners = [
   { name: "US Embassy", url: "https://cm.usembassy.gov/" },
   { name: "Cameroonian Embassy", url: "https://www.cameroonembassyusa.org/" },
-  { name: "Med Share", url: "https://www.medshare.org/" },
   { name: "Huht orphans", url: "https://www.huhtorphans.com  " },
+  { name: "Med Share", url: "https://www.medshare.org/" },
   { name: "Memsbodycream", url: "https://www.memsbodycream.com/ " },
+  { name: "Nanje Creative Thinking", url: "https://nanjecreativethinking.blogspot.com/ " },
 ];
 
 export default function PartnerOrganizations() {

@@ -79,7 +79,7 @@ const JoinCommunity = () => {
       >
         <CountUp
           from={0}
-          to={262}
+          to={1000}
           separator=","
           direction="up"
           duration={1}
@@ -89,7 +89,7 @@ const JoinCommunity = () => {
       </motion.h1>
 
       <p className="text-gray-500 relative z-40">people already joining</p>
-      <Link to="/community/education">
+      <Link to="/contact">
         <motion.button
           className="px-6 py-4 text-xl backdrop-blur-md border bg-darkish/60 border-greenish/40 text-white mx-auto text-center rounded-full relative mt-4 hover:scale-110 transition z-40"
           whileHover={{ scale: 1.05 }}

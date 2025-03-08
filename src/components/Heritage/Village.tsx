@@ -4,8 +4,8 @@ import img1 from "@/assets/lands.jpeg";
 import img2 from "@/assets/batika.jpg";
 import img3 from "@/assets/mofako.jpeg";
 import img4 from "@/assets/Bakumba.jpg";
-import { AnimatedSection } from "./Macoros";
 import Img5 from "@/assets/pic2.jpg";
+import { AnimatedSection } from "./Mackoros";
 
 export default function VillagesPage() {
   return (

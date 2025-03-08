@@ -1,6 +1,9 @@
 import { useRef, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { Users2Icon } from "lucide-react";
+// import Logo form "@/assets/logo/huht.png"
+import Logo from "@/assets/logo/huht.png";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 
@@ -8,14 +11,17 @@ const partners = [
   {
     name: "Memsbodycream",
     href: "https://www.memsbodycream.com/ ",
+    image: Logo,
   },
   {
     name: "HUHT Orphans",
     href: "https://www.huhtorphans.com",
+    image: Logo,
   },
   {
     name: "Med Share",
     href: "https://www.medshare.org/",
+    image: Logo,
   },
   // Add more partners here
 ];

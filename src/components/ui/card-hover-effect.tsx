@@ -1,5 +1,5 @@
-import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 export const HoverEffect = ({
@@ -16,14 +16,14 @@ export const HoverEffect = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={cn("grid grid-cols-1 md:grid-cols-2 gap-4 py-10", className)}
-    >
+    <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-4 py-10 ", className)}>
       {items.map((item, idx) => (
         <motion.a
           key={idx}
           href={item.link}
-          className="relative group block p-2 h-full w-full"
+          className={`relative group block p-2 h-full w-full  ${
+            item.title == "Present Project" ? "row-span-2 flex items-center justify-around" : ""
+          }`}
           whileHover="hover"
           initial="rest"
           animate="rest"
@@ -47,9 +47,7 @@ export const HoverEffect = ({
               {item.image}
               {item.icon}
               <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                {item.description}
-              </p>
+              <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
             </div>
             <div className="flex justify-end mt-4">
               <motion.svg
@@ -77,4 +75,3 @@ export const HoverEffect = ({
     </div>
   );
 };
-

@@ -81,17 +81,17 @@ const dropdownItems: Record<string, DropdownItem[]> = {
           label: "Cultural Heritage",
           description: "Historical artifacts and preservation",
         },
+        // {
+        //   href: "/heritage/traditional",
+        //   label: "Traditional Dishes",
+        //   description:
+        //     "Our dishes are a flavorful reflection of our cultural heritage and culinary traditions.",
+        // },
         {
-          href: "/heritage/traditional",
-          label: "Traditional Dishes",
+          href: "/heritage/Makoros",
+          label: "Makoros",
           description:
-            "Our dishes are a flavorful reflection of our cultural heritage and culinary traditions.",
-        },
-        {
-          href: "/heritage/macoros",
-          label: "Macoros",
-          description:
-            "A traditional sport of the Dikome Balue community, embodying the spirit of camaraderie, athleticism, and cultural pride.",
+            "A traditional of the Dikome Balue community, embodying the spirit of camaraderie, athleticism, and cultural pride.",
         },
       ],
     },
@@ -163,8 +163,13 @@ const dropdownItems: Record<string, DropdownItem[]> = {
     },
     {
       href: "/gallery",
-      label: "Mabunu",
-      description: "Mabuntu gallery captures the essence and energy of this cultural festival.",
+      label: "Dibunu",
+      description: "Dibunu gallery captures the essence and energy of this cultural festival.",
+    },
+    {
+      href: "/events",
+      label: "Events",
+      description: "Here are some of the images from our events.",
     },
   ],
   "/projects": [

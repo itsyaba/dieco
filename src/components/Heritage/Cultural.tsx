@@ -6,8 +6,8 @@ import img3 from "@/assets/performing-150x150.png";
 import img4 from "@/assets/speech-bubble-150x150.png";
 import img5 from "@/assets/scroll-150x150.png";
 import img6 from "@/assets/Mount.jpeg";
-
-import { AnimatedSection } from "./Macoros";
+import { AnimatedSection } from "./Mackoros";
+import TimelineDemo from "./Timeline";
 
 export default function CulturalPage() {
   return (
@@ -27,7 +27,7 @@ export default function CulturalPage() {
             community.
           </p>
         </AnimatedSection>
-
+        <TimelineDemo />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10  place-items-center min-h-[280vh] md:min-h-[180vh] lg:min-h-[120vh]">
           <div className="flex justify-center">
             <PinContainer title="Traditional Festivals" href="#">

@@ -27,8 +27,8 @@ export default function Hero() {
         </motion.p>
         <motion.p className="w-5/6  md:max-w-4xl text-md mx-auto text-center">
           Welcome to DIDECO North America, where we honor the rich heritage of the Dikome Balue
-          people. Join us as we celebrate our past, empower our future, and forge new connections
-          across continents.
+          people. Join us as we celebrate our past, empower our present,and forge new connections in
+          the future across continents.
         </motion.p>
         <motion.div className="flex items-center justify-center flex-col md:flex-row gap-6">
           <Link to="/about">

@@ -13,41 +13,28 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import toast from "react-hot-toast";
 
-
 const TIERS = [
   {
     name: "Platinum",
-    amount: 50000,
-    benefits: [
-      "Maximum visibility",
-      "VIP access to events",
-      "Recognition in all materials",
-    ],
+    amount: 10000,
+    benefits: ["Maximum visibility", "VIP access to events", "Recognition in all materials"],
     color: "#E5E4E2", // Silver
   },
   {
     name: "Gold",
-    amount: 45000,
-    benefits: [
-      "High visibility",
-      "Priority access to events",
-      "Recognition in major materials",
-    ],
+    amount: 7500,
+    benefits: ["High visibility", "Priority access to events", "Recognition in major materials"],
     color: "#FFD700", // Gold
   },
   {
     name: "Silver",
-    amount: 35000,
-    benefits: [
-      "Enhanced visibility",
-      "Event access",
-      "Recognition in select materials",
-    ],
+    amount: 5000,
+    benefits: ["Enhanced visibility", "Event access", "Recognition in select materials"],
     color: "#C0C0C0", // Light Steel Blue
   },
   {
     name: "Bronze",
-    amount: 25000,
+    amount: 2500,
     benefits: ["Standard visibility", "Event invitations", "Basic recognition"],
     color: "#CD7F32", // Bronze
   },
@@ -63,9 +50,7 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
   const [finalAmount, setFinalAmount] = useState<number>(10);
 
   const clientId =
-    import.meta.env.VITE_PAYPAL_CLIENT_ID ||
-    process.env.REACT_APP_PAYPAL_CLIENT_ID ||
-    "";
+    import.meta.env.VITE_PAYPAL_CLIENT_ID || process.env.REACT_APP_PAYPAL_CLIENT_ID || "";
 
   const handleOptionChange = (value: string) => {
     setSelectedOption(value);
@@ -77,7 +62,6 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
   };
 
   console.log(selectedProject);
-  
 
   const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const amount = parseFloat(e.target.value) || 0;
@@ -106,9 +90,7 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
             >
               <CardHeader>
                 <CardTitle>${tier.amount.toLocaleString()}</CardTitle>
-                <CardDescription className="text-xl font-bold">
-                  {tier.name}
-                </CardDescription>
+                <CardDescription className="text-xl font-bold">{tier.name}</CardDescription>
               </CardHeader>
               <CardContent className="flex-1">
                 <ul className="space-y-2">
@@ -135,9 +117,7 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
               <CardFooter>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value={tier.name} id={`radio-${tier.name}`} />
-                  <Label htmlFor={`radio-${tier.name}`}>
-                    Select {tier.name}
-                  </Label>
+                  <Label htmlFor={`radio-${tier.name}`}>Select {tier.name}</Label>
                 </div>
               </CardFooter>
             </Card>
@@ -204,14 +184,8 @@ export function SponsorshipTiers({ selectedProject }: SponsorshipTiersProps) {
               return;
             }
             return actions.order.capture().then((details) => {
-              const payerName =
-                details.purchase_units?.[0]?.shipping?.name?.full_name ||
-                "Donor";
-              toast.success(
-                `Thank you, ${payerName}! You donated $${finalAmount.toFixed(
-                  2
-                )}`
-              );
+              const payerName = details.purchase_units?.[0]?.shipping?.name?.full_name || "Donor";
+              toast.success(`Thank you, ${payerName}! You donated $${finalAmount.toFixed(2)}`);
             });
           }}
         />

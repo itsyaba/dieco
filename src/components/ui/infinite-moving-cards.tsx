@@ -25,6 +25,7 @@ export const InfiniteMovingCards = ({
 
   useEffect(() => {
     addAnimation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [start, setStart] = useState(false);
@@ -93,6 +94,9 @@ export const InfiniteMovingCards = ({
               <blockquote>
                 <div className="relative z-20 flex flex-row items-center text-center">
                   <span className="flex flex-col gap-1">
+                    <span className="">
+                      <img src={item.image} alt={`${item.name} Logo`} />
+                    </span>
                     <span className="text-2xl  text-gray-200 font-semibold">{item.name}</span>
                   </span>
                 </div>

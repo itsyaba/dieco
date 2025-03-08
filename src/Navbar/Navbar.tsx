@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, Phone, Mail } from "lucide-react";
+import { Menu, Mail, Linkedin, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import NavLink from "./NavLink";
@@ -34,21 +34,12 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-[999] w-full">
       {/* Top bar with contact info and social links */}
-      <div
-        className={cn(
-          "bg-darkish text-zinc-200 py-2 px-4",
-          isScrolled && "hidden"
-        )}
-      >
+      <div className={cn("bg-darkish text-zinc-200 py-2 px-4", isScrolled && "hidden")}>
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-6">
-            <div className="flex items-center text-sm">
-              <Phone className="h-3.5 w-3.5 mr-2" />
-              <span>1800-123-4567</span>
-            </div>
             <div className="hidden sm:flex items-center text-sm">
               <Mail className="h-3.5 w-3.5 mr-2" />
-              <span> info@dideconorthamerica.org</span>
+              <span> DIDECONORTHAMERICA@GMAIL.COM</span>
             </div>
           </div>
           <div className="flex items-center space-x-3">
@@ -57,42 +48,14 @@ const Navbar = () => {
               variant="ghost"
               className="h-8 w-8 text-zinc-200 hover:text-white bg-zinc-700"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
-              >
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-              </svg>
+              <Facebook className="h-3 w-3" color="blue" />
             </Button>
             <Button
               size="icon"
               variant="ghost"
               className="h-8 w-8 text-zinc-200 hover:text-white bg-zinc-700"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
-              >
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect width="4" height="12" x="2" y="9" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
+              <Linkedin className="w-3 h-3" color="blue" />
             </Button>
           </div>
         </div>
@@ -103,7 +66,7 @@ const Navbar = () => {
         className={cn(
           "py-4 transition-all duration-300",
           isScrolled
-            ? "bg-darkish/95 backdrop-blur-md shadow-md py-3 text-white"
+            ? "bg-greenish/80 backdrop-blur-md shadow-md py-3 text-white"
             : "bg-white text-darkish"
         )}
       >
@@ -130,9 +93,9 @@ const Navbar = () => {
               <Link to="/donate">
                 <button
                   className={cn(
-                    "ml-2 px-5 py-2 text-xl backdrop-blur-md border  border-greenish/40 text-white mx-auto text-center rounded-full relative  hover:scale-110 transition flex items-center justify-center",
+                    "ml-2 px-5 py-2 text-xl backdrop-blur-3xl border  border-greenish/40 text-white mx-auto text-center rounded-full relative  hover:scale-110 transition flex items-center justify-center bg-orange-500/90"
 
-                    isScrolled ? "bg-greenish/70" : "bg-greenish"
+                    // isScrolled ? "bg-greenish/70" : "bg-greenish"
                   )}
                 >
                   <span>Donate Now</span>
@@ -155,10 +118,7 @@ const Navbar = () => {
       </motion.nav>
 
       {/* Mobile Menu */}
-      <MobileMenu
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-      />
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
     </header>
   );
 };

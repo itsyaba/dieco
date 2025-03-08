@@ -7,15 +7,14 @@ import EducationDescription from "./components/Community/EducationDescription";
 import HealthcareDescription from "./components/Community/HealthcareDescription";
 import ReligionDescription from "./components/Community/ReligionDescription";
 import ScrollToTop from "./lib/ScrollToTop";
-import Macoros from "./components/Heritage/Macoros";
 import VillagesPage from "./components/Heritage/Village";
 import CulturalPage from "./components/Heritage/Cultural";
 import ProjectsPage from "./components/Projects/Projects";
 import DonatePage from "./components/Donate/Donate";
 import OutreachPage from "./components/Outreach/Outreach";
 import ContactSection from "./components/Contact/contact";
-import TraditionalPage from "./components/Heritage/Traditional";
 import GalleryPage from "./components/Gallery/GalleryPage";
+import Makoros from "./components/Heritage/Mackoros";
 
 function App() {
   return (
@@ -34,8 +33,7 @@ function App() {
         <Route path="/heritage" element={<VillagesPage />} />
         <Route path="/heritage/village" element={<VillagesPage />} />
         <Route path="/heritage/cultural" element={<CulturalPage />} />
-        <Route path="/heritage/traditional" element={<TraditionalPage />} />
-        <Route path="/heritage/macoros" element={<Macoros />} />
+        <Route path="/heritage/Makoros" element={<Makoros />} />
 
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/gallery" element={<GalleryPage />} />

@@ -18,17 +18,17 @@ const FAQSection = () => {
 
   const stats = [
     {
-      number: "262",
+      number: "1000",
       label: "MEMBERS IN USA",
       icon: <School className="size-16" />,
     },
     {
-      number: "4",
+      number: "10",
       label: "DIDECO BRANCHES",
       icon: <HandCoins className="size-16" />,
     },
     {
-      number: "5",
+      number: "8",
       label: "VILLAGES",
       icon: <User className="size-16" />,
     },
@@ -44,11 +44,6 @@ const FAQSection = () => {
       question: "Where does my transaction processing fee go?",
       answer:
         "Adding an additional 2.5% to your donation covers processing fees. This fee is optional and helps with expenses associated with gift processing.",
-    },
-    {
-      question: "How can I receive a refund?",
-      answer:
-        "If you need a refund, please contact our support team within 7 days of your donation. Refunds are processed based on eligibility.",
     },
     {
       question: "Is my credit card information secure?",
@@ -106,9 +101,7 @@ const FAQSection = () => {
                 <motion.h3
                   className="text-3xl font-bold mt-4"
                   initial={{ opacity: 0, y: -20 }}
-                  animate={
-                    inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
-                  }
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
                 >
                   {stat.number}

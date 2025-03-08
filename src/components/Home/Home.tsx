@@ -2,7 +2,7 @@ import Hero from "./Hero";
 import About from "./About";
 import AnimatedCTA from "./CtaSection";
 
-import Img from "@/assets/imggg.jpg";
+import Img from "@/assets/WhatsApp Image 2025-02-13 at 11.09.03_682f21e4.jpg";
 // import { DetailsSection } from "./DetailSection";
 // import BlogSection from "./BlogSection";
 import JoinCommunity from "./JoinCommunity";

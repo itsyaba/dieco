@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Home, Phone, Mail } from "lucide-react";
+import { Home, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Logo from "@/assets/dideco-logo.png";
 import { Newsletter } from "./Newsletter";
@@ -71,12 +71,8 @@ export function Footer() {
                 <span className="text-sm">Collins Street West,121 King Street, Melbourne.</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
-                <Phone className="h-5 w-5 text-green-500" />
-                <span className="text-sm">1800-123-4567</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-400">
                 <Mail className="h-5 w-5 text-green-500" />
-                <span className="text-sm">info@dideconorthamerica.org</span>
+                <span className="text-sm">DIDECONORTHAMERICA@GMAIL.COM</span>
               </div>
             </div>
           </motion.div>

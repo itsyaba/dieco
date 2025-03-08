@@ -5,6 +5,7 @@ import { BookOpen, Languages, User } from "lucide-react";
 // import Img from "@/assets/home-slider1.jpg";
 import AnimateTitle from "@/components/AnimateTitle";
 import { FeatureCard } from "../Community/EducationDescription";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -131,29 +132,33 @@ empowering our people, and fostering unity across continents."
       </div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto container">
-        <FeatureCard
-          icon={User}
-          title="About DIDECO"
-          description="Learn about our commitment to sustainable development, cultural preservation, and
+        <Link to="/about">
+          <FeatureCard
+            icon={User}
+            title="About DIDECO"
+            description="Learn about our commitment to sustainable development, cultural preservation, and
             community empowerment."
-          delay={0.1}
-        />
-
-        <FeatureCard
-          icon={Languages}
-          title="Our Heritage"
-          description="From the language we speak to the festivals we celebrate, our heritage is a source of
+            delay={0.1}
+          />
+        </Link>
+        <Link to="/heritage">
+          <FeatureCard
+            icon={Languages}
+            title="Our Heritage"
+            description="From the language we speak to the festivals we celebrate, our heritage is a source of
             pride and inspiration. Learn about the customs, rituals, and values that define us"
-          delay={0.2}
-        />
-
-        <FeatureCard
-          icon={BookOpen}
-          title="Our History"
-          description=" Explore our rich history, from the early migrations of our ancestors to the founding of
+            delay={0.2}
+          />
+        </Link>
+        <Link to="/about#history">
+          <FeatureCard
+            icon={BookOpen}
+            title="Our History"
+            description=" Explore our rich history, from the early migrations of our ancestors to the founding of
             our organization, and the milestones that have shaped our journey."
-          delay={0.3}
-        />
+            delay={0.3}
+          />
+        </Link>
       </div>
     </div>
   );
