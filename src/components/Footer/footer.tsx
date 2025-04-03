@@ -72,7 +72,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
                 <Mail className="h-5 w-5 text-green-500" />
-                <span className="text-sm">DIDECONORTHAMERICA@GMAIL.COM</span>
+                <span className="text-sm">dideconorthamerica@gmail.com</span>
               </div>
             </div>
           </motion.div>
