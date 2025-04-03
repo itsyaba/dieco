@@ -3,6 +3,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { Users2Icon } from "lucide-react";
 // import Logo form "@/assets/logo/huht.png"
 import Logo from "@/assets/logo/huht.png";
+import Logo2 from "@/assets/Mems-02-1.jpg";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
@@ -11,7 +12,7 @@ const partners = [
   {
     name: "Memsbodycream",
     href: "https://www.memsbodycream.com/ ",
-    image: Logo,
+    image: Logo2,
   },
   {
     name: "HUHT Orphans",
@@ -21,9 +22,8 @@ const partners = [
   {
     name: "Med Share",
     href: "https://www.medshare.org/",
-    image: Logo,
+    image: "https://www.medshare.org/wp-content/uploads/2023/09/medshare-logo.svg",
   },
-  // Add more partners here
 ];
 
 export default function PartnersPage() {
@@ -38,7 +38,7 @@ export default function PartnersPage() {
   }, [controls, inView]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-300 to-white" id="partners">
+    <div className="min-h-screen " id="partners">
       <section className="py-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
