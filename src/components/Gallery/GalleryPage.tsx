@@ -71,14 +71,92 @@ import img70 from "@/assets/old/thumb_1262774889PIC_0115.JPG.jpg";
 import img71 from "@/assets/old/thumb_1262774704PIC_0108.JPG.jpg";
 import img72 from "@/assets/old/thumb_1262773110IMG0331A.jpg.jpg";
 import img73 from "@/assets/old/thumb_1262770131Image019.jpg.jpg";
+
+import img75 from "@/assets/dideco/IMG_5934.jpg";
+import img76 from "@/assets/dideco/IMG_5935.jpg";
+import img77 from "@/assets/dideco/IMG_5938.jpg";
+import img78 from "@/assets/dideco/IMG_5939.jpg";
+import img79 from "@/assets/dideco/IMG_5940.jpg";
+import img90 from "@/assets/dideco/IMG_5944.jpg";
+import img91 from "@/assets/dideco/IMG_5946.jpg";
+import img92 from "@/assets/dideco/IMG_5947.jpg";
+import img93 from "@/assets/dideco/IMG_5949.jpg";
+import img94 from "@/assets/dideco/IMG_5953.jpg";
+import img95 from "@/assets/dideco/IMG_5958.jpg";
+import img96 from "@/assets/dideco/IMG_5963.jpg";
+import img97 from "@/assets/dideco/IMG_5966.jpg";
+import img98 from "@/assets/dideco/IMG_5967.jpg";
+import img99 from "@/assets/dideco/IMG_5969.jpg";
+import img100 from "@/assets/dideco/IMG_5974.jpg";
+
 import CircularGallery from "../ui/CircularGallery";
 
 const GalleryPage = () => {
   const images = [
-    // {
-    //   image: img1,
-    //   text: "Image 1",
-    // },
+    {
+      image: img75,
+      text: "Image 75",
+    },
+    {
+      image: img76,
+      text: "Image 76",
+    },
+    {
+      image: img77,
+      text: "Image 77",
+    },
+    {
+      image: img78,
+      text: "Image 78",
+    },
+    {
+      image: img79,
+      text: "Image 79",
+    },
+    {
+      image: img90,
+      text: "Image 90",
+    },
+    {
+      image: img91,
+      text: "Image 91",
+    },
+    {
+      image: img92,
+      text: "Image 92",
+    },
+    {
+      image: img93,
+      text: "Image 93",
+    },
+    {
+      image: img94,
+      text: "Image 94",
+    },
+    {
+      image: img95,
+      text: "Image 95",
+    },
+    {
+      image: img96,
+      text: "Image 96",
+    },
+    {
+      image: img97,
+      text: "Image 97",
+    },
+    {
+      image: img98,
+      text: "Image 98",
+    },
+    {
+      image: img99,
+      text: "Image 99",
+    },
+    {
+      image: img100,
+      text: "Image 100",
+    },
     {
       image: img2,
       text: "Image 2",
