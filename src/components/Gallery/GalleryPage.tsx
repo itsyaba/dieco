@@ -448,7 +448,7 @@ const GalleryPage = () => {
     <div className="mt-40">
       <DescCard title="Gallery" breadcrumb="gallery" backgroundImage={img0} />
       <div className=" mx-auto bg-greenish h-[70vh] flex items-center justify-center ">
-        <div style={{ height: "350px", position: "relative" }} className="w-full">
+        <div style={{ height: "650px", position: "relative" }} className="w-full">
           <CircularGallery items={images} bend={4} textColor="#ffffff" borderRadius={0.05} />
         </div>
       </div>
